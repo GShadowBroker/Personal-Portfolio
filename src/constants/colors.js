@@ -1,0 +1,26 @@
+module.exports = {
+  secondary: "#ff6348",
+  error: "#ffa502",
+  darkGray: "# 57606f",
+  light: "#f1f2f6",
+  light: {
+    background: "#ffff",
+    color: "#57606f",
+    shadow: "#bebebe",
+    imageContainer: "#bebebe",
+    light: "#f1f2f6",
+    textGray: "#a1a1a1",
+    inputText: "#242933",
+    footer: "#f1f2f6",
+  },
+  dark: {
+    background: "#2f3542",
+    color: "#f1f2f6",
+    shadow: "#242933",
+    imageContainer: "#57606f",
+    light: "#f1f2f6",
+    textGray: "#cccccc",
+    inputText: "#f1f2f6",
+    footer: "#242933",
+  },
+}
