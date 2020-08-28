@@ -7,7 +7,8 @@ import Button from "../utils/Button"
 import Text from "../utils/Text"
 
 const HeroContainer = styled.div`
-  height: ${window.innerHeight - dimensions.navbarHeight}px;
+  /* height: ${window.innerHeight - dimensions.navbarHeight}px; */
+  height: 80vh;
   display: flex;
   align-items: center;
 `
@@ -17,13 +18,14 @@ const HeroLeftPane = styled.div`
 `
 const HeroImageContainer = styled.div`
   height: 100%;
-  max-height: ${() => {
+  /* max-height: ${() => {
     if (window.innerWidth > 1200) {
       return "600px"
     } else {
       return window.innerWidth * 0.5 + "px"
     }
-  }};
+  }}; */
+  max-height: 80vh;
   width: 50%;
 
   background-color: ${props => colors[props.theme].imageContainer};
@@ -31,7 +33,8 @@ const HeroImageContainer = styled.div`
 `
 
 const Image = styled.div`
-  min-height: ${window.innerHeight * 0.55}px;
+  /* min-height: ${window.innerHeight * 0.55}px; */
+  min-height: 50vh;
   position: relative;
   top: 50%;
   transform: translateY(-50%);

@@ -55,11 +55,12 @@ const ProjectsWrapper = styled.div`
 const Project = styled.div`
   width: 50%;
   height: ${() => {
-    if (window.innerWidth > 1200) {
+    /* if (window.innerWidth > 1200) {
       return 600 / 2.09
     } else {
       return window.innerWidth / 2 / 2.09
-    }
+    } */
+    return 300
   }}px;
 
   background-image: url(${props => props.path});
