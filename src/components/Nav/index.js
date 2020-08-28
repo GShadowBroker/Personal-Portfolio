@@ -138,17 +138,22 @@ const Nav = () => {
         </ThemeSwitch>
 
         <Icon hover={"#2867B2"}>
-          <a href={urls.github} target="_blank" title="GitHub">
+          <a href={urls.github} target="_blank" title="GitHub" rel="noreferrer">
             <AiFillGithub />
           </a>
         </Icon>
         <Icon hover={"#2867B2"}>
-          <a href={urls.linkedin} target="_blank" title="LinkedIn">
+          <a
+            href={urls.linkedin}
+            target="_blank"
+            title="LinkedIn"
+            rel="noreferrer"
+          >
             <AiFillLinkedin />
           </a>
         </Icon>
-        <Icon hover={"#d44638"} target="_blank" title="E-mail">
-          <a href={urls.email}>
+        <Icon hover={"#d44638"} title="E-mail">
+          <a href={urls.email} rel="noreferrer">
             <AiFillMail />
           </a>
         </Icon>

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
 import { themeContext } from "../../utils/ThemeContext"
 import colors from "../../constants/colors"
@@ -211,6 +211,7 @@ const Projects = () => {
               <ExternalLink
                 href="https://orkutnostalgia.netlify.app"
                 target="_blank"
+                rel="noreferrer"
               >
                 visitar
               </ExternalLink>
@@ -220,6 +221,7 @@ const Projects = () => {
               <ExternalLink
                 href="https://github.com/GShadowBroker/orkut-clone-server"
                 target="_blank"
+                rel="noreferrer"
               >
                 backend
               </ExternalLink>
@@ -229,6 +231,7 @@ const Projects = () => {
               <ExternalLink
                 href="https://github.com/GShadowBroker/orkut-clone-client"
                 target="_blank"
+                rel="noreferrer"
               >
                 front-end
               </ExternalLink>
@@ -275,6 +278,7 @@ const Projects = () => {
               <ExternalLink
                 href="https://minhalojadecelulares.herokuapp.com/"
                 target="_blank"
+                rel="noreferrer"
               >
                 visitar
               </ExternalLink>
@@ -284,6 +288,7 @@ const Projects = () => {
               <ExternalLink
                 href="https://github.com/GShadowBroker/minhaloja"
                 target="_blank"
+                rel="noreferrer"
               >
                 ver código
               </ExternalLink>
@@ -292,7 +297,11 @@ const Projects = () => {
           <ProjectDescription>
             Esta é uma loja virtual fictícia construída com NodeJS, Express e
             Pug (Jade). É uma loja totalmente funcional, integrada com o{" "}
-            <ExternalLink href="https://pagseguro.uol.com.br/" target="_blank">
+            <ExternalLink
+              href="https://pagseguro.uol.com.br/"
+              target="_blank"
+              rel="noreferrer"
+            >
               PagSeguro
             </ExternalLink>
             , que permite adicionar itens ao carrinho de compras, finalizar a
@@ -402,6 +411,7 @@ const Projects = () => {
               <ExternalLink
                 href="https://github.com/GShadowBroker/Chess-Clock-React-App"
                 target="_blank"
+                rel="noreferrer"
               >
                 ver código
               </ExternalLink>
@@ -430,7 +440,11 @@ const Projects = () => {
           <ProjectLinks>
             <LinkContainer>
               <FaGithub />
-              <ExternalLink href="#" target="_blank">
+              <ExternalLink
+                href="https://github.com/GShadowBroker/Personal-Portfolio"
+                target="_blank"
+                rel="noreferrer"
+              >
                 ver código
               </ExternalLink>
             </LinkContainer>

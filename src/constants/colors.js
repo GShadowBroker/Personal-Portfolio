@@ -2,7 +2,6 @@ module.exports = {
   secondary: "#ff6348",
   error: "#ffa502",
   darkGray: "# 57606f",
-  light: "#f1f2f6",
   light: {
     background: "#ffff",
     color: "#57606f",

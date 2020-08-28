@@ -16,7 +16,6 @@ import {
   SiGraphql,
   SiPostgresql,
   SiMongodb,
-  SiGit,
 } from "react-icons/si"
 import { IoLogoJavascript } from "react-icons/io"
 

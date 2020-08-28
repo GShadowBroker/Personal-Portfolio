@@ -15,16 +15,23 @@ import { BiError } from "react-icons/bi"
 
 const ContactForm = () => {
   const { theme } = useContext(themeContext)
-  const { register, handleSubmit, errors } = useForm()
+  const { register, handleSubmit, errors, reset } = useForm()
 
-  const onSubmit = data => {
+  const onSubmit = (data, e) => {
     const { email, name, content } = data
     if (!email || !name || !content) return
     console.table(data)
+    reset()
+    alert("Formulário enviado! Obrigado por entrar em contato.")
   }
 
   return (
-    <Form onSubmit={handleSubmit(onSubmit)}>
+    <Form
+      onSubmit={handleSubmit(onSubmit)}
+      name="Portfolio Contact"
+      method="POST"
+      data-netlify="true"
+    >
       <InputGroup>
         <Label htmlFor="name">nome</Label>
         <Input

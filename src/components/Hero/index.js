@@ -9,6 +9,7 @@ import Text from "../utils/Text"
 const HeroContainer = styled.div`
   height: ${window.innerHeight - dimensions.navbarHeight}px;
   display: flex;
+  align-items: center;
 `
 const HeroLeftPane = styled.div`
   height: 100%;
@@ -16,6 +17,13 @@ const HeroLeftPane = styled.div`
 `
 const HeroImageContainer = styled.div`
   height: 100%;
+  max-height: ${() => {
+    if (window.innerWidth > 1200) {
+      return "600px"
+    } else {
+      return window.innerWidth * 0.5 + "px"
+    }
+  }};
   width: 50%;
 
   background-color: ${props => colors[props.theme].imageContainer};
