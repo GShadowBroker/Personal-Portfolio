@@ -10,8 +10,8 @@ const SButton = styled.a`
   margin-top: 1.5rem;
   background-color: ${props => colors[props.theme].shadow};
 
-  height: 56px;
-  width: 180px;
+  height: 4rem;
+  width: 12rem;
 
   cursor: pointer;
   outline: none;
@@ -28,7 +28,7 @@ const SButton = styled.a`
     background-color: ${colors.secondary};
     color: #ffff;
     font-family: inherit;
-    font-size: 18px;
+    font-size: 1em;
     font-weight: 800;
 
     position: absolute;

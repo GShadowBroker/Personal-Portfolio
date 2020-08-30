@@ -28,7 +28,7 @@ const AboutContainer = styled.section`
   margin-bottom: 10rem;
 `
 const Title = styled.div`
-  font-size: 36px;
+  font-size: 2.2em;
   font-weight: 500;
   margin: 2rem auto;
   padding-bottom: 0.5rem;
@@ -85,7 +85,7 @@ const Image = styled.div`
 
 const Name = styled.div`
   text-align: center;
-  font-size: 20px;
+  font-size: 1.2em;
   font-weight: bold;
   line-height: 1.6;
 
@@ -108,7 +108,7 @@ const Stack = styled.div`
 `
 
 const StackTitle = styled.div`
-  font-size: 20px;
+  font-size: 1.2em;
   font-weight: bold;
   text-align: center;
   margin-bottom: 3rem;
@@ -139,7 +139,7 @@ const IconContainer = styled.div`
 const Icon = styled.div`
   display: flex;
   justify-content: center;
-  font-size: 50px;
+  font-size: 3.1rem;
 `
 const IconTitle = styled.div`
   text-align: center;

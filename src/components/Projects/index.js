@@ -25,7 +25,7 @@ import useImage from "../utils/useImage"
 const ProjectsContainer = styled.section``
 
 const Title = styled.div`
-  font-size: 36px;
+  font-size: 2.2em;
   font-weight: 500;
   margin: 2rem auto;
   padding-bottom: 0.5rem;
@@ -54,19 +54,22 @@ const ProjectsWrapper = styled.div`
 
 const Project = styled.div`
   width: 50%;
-  height: ${() => {
-    /* if (window.innerWidth > 1200) {
-      return 600 / 2.09
-    } else {
-      return window.innerWidth / 2 / 2.09
-    } */
-    return 300
-  }}px;
+  height: 18rem;
 
   background-image: url(${props => props.path});
   background-size: cover;
   position: relative;
   background-repeat: no-repeat;
+
+  @media only screen and (max-width: 2000px) {
+    height: 22rem;
+  }
+  @media only screen and (max-width: 1600px) {
+    height: 20rem;
+  }
+  @media only screen and (max-width: 1400px) {
+    height: 18rem;
+  }
 `
 
 const ProjectDetailsContainer = styled.div`
@@ -110,7 +113,7 @@ const ProjectDescription = styled.p`
 
 const Technologies = styled.div`
   margin-top: 2rem;
-  font-size: 32px;
+  font-size: 2em;
   display: flex;
   align-items: center;
 `

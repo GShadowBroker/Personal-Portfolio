@@ -46,7 +46,7 @@ const Icon = styled.div`
     display: flex;
   }
 
-  font-size: 1.5rem;
+  font-size: 1.5em;
   transition: color 0.3s;
   &:hover {
     color: ${props => (props.hover ? props.hover : "inherit")};

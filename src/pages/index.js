@@ -12,10 +12,18 @@ import { ThemeContextProvider } from "../utils/ThemeContext"
 import styled from "styled-components"
 
 const Container = styled.div`
-  max-width: 1200px;
-
   flex: 1;
   padding: 0 0.6rem;
+
+  @media only screen and (max-width: 2000px) {
+    max-width: 1600px;
+  }
+  @media only screen and (max-width: 1600px) {
+    max-width: 1400px;
+  }
+  @media only screen and (max-width: 1400px) {
+    max-width: 1200px;
+  }
 `
 
 const Home = () => {
