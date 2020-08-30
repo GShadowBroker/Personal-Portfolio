@@ -16,13 +16,23 @@ export const HeroContainer = styled.div`
     flex-direction: column;
     flex-flow: column-reverse;
   }
+  @media only screen and (max-width: 515px) {
+    height: 100vh;
+  }
 `
 export const HeroLeftPane = styled.div`
   height: 100%;
-  width: 50%;
+  width: 50vw;
 
   @media only screen and (max-width: 1000px) {
-    width: 70%;
+    width: 70vw;
+    padding-left: 3rem;
+  }
+  @media only screen and (max-width: 815px) {
+    width: 80vw;
+  }
+  @media only screen and (max-width: 515px) {
+    padding: 0;
   }
 `
 export const HeroImageContainer = styled.div`
@@ -60,11 +70,19 @@ export const Image = styled.div`
 export const Headline = styled.div`
   font-size: 4em;
   line-height: 1.2;
+
+  @media only screen and (max-width: 380px) {
+    font-size: 3.5em;
+  }
 `
 export const SubHeadline = styled.div`
   color: ${colors.secondary};
   font-size: 2.5em;
   font-weight: 600;
+
+  @media only screen and (max-width: 380px) {
+    font-size: 2em;
+  }
 `
 
 export const Header = styled.div`

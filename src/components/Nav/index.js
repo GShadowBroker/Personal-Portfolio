@@ -5,6 +5,7 @@ import urls from "../../constants/urls"
 import dimensions from "../../constants/dimensions"
 import { themeContext } from "../../utils/ThemeContext"
 import colors from "../../constants/colors"
+import { GiHamburgerMenu } from "react-icons/gi"
 
 const Navbar = styled.nav`
   display: flex;
@@ -18,18 +19,21 @@ const Navbar = styled.nav`
     height: fit-content;
     margin: 0;
     padding: 0;
+
+    @media only screen and (max-width: 815px) {
+      display: none;
+    }
   }
-  li:first-of-type {
+  li:not(first-of-type):not(last-of-type) {
     margin-left: 0;
-  }
-  li:last-of-type {
-    margin-right: 0;
   }
   li {
     display: inline;
     margin: 1rem;
   }
 `
+
+const Logo = styled.div``
 
 const Social = styled.div`
   display: flex;
@@ -38,6 +42,10 @@ const Social = styled.div`
   }
   & > div {
     margin: 0 0.5rem;
+  }
+
+  @media only screen and (max-width: 515px) {
+    display: none;
   }
 `
 
@@ -94,6 +102,15 @@ const Switch = styled.div`
   border-radius: 50%;
 `
 
+const Hamburguer = styled.div`
+  font-size: 2em;
+  display: none;
+
+  @media only screen and (max-width: 815px) {
+    display: flex;
+  }
+`
+
 const Nav = () => {
   const themeButton = useRef(null)
   const { theme, toggleTheme } = useContext(themeContext)
@@ -118,7 +135,7 @@ const Nav = () => {
 
   return (
     <Navbar>
-      <div>{"<Gledyson />"}</div>
+      <Logo>{"<Gledyson />"}</Logo>
       <ul>
         <li>
           <a href="#about">sobre mim</a>
@@ -158,6 +175,9 @@ const Nav = () => {
           </a>
         </Icon>
       </Social>
+      <Hamburguer>
+        <GiHamburgerMenu />
+      </Hamburguer>
     </Navbar>
   )
 }

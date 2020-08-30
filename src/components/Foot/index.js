@@ -8,12 +8,17 @@ import urls from "../../constants/urls"
 const FooterContainer = styled.footer`
   background: ${props => colors[props.theme].footer};
   margin-top: 10rem;
-  height: 100px;
+  height: 160px;
   width: 100%;
 
   display: flex;
   justify-content: space-around;
   align-items: center;
+  flex-wrap: wrap;
+
+  & > div {
+    margin: 1rem 0.8rem;
+  }
 `
 const Text = styled.div`
   font-size: 0.9em;
