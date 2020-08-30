@@ -12,7 +12,7 @@ const useImage = imageCount => {
   }
 
   const prevImage = () => {
-    if (value.index - 1 > 1) {
+    if (value.index - 1 >= 1) {
       setValue({ index: value.index - 1, total: imageCount })
       return
     } else if (imageCount === 2 && value.index === imageCount) {

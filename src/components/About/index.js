@@ -112,9 +112,14 @@ const StackTitle = styled.div`
   font-weight: bold;
   text-align: center;
   margin-bottom: 3rem;
+  max-width: 100%;
 
   & > span {
     color: ${colors.secondary};
+  }
+
+  @media only screen and (max-width: 1000px) {
+    /* flex-direction: column; */
   }
 `
 
@@ -123,6 +128,7 @@ const StackIcons = styled.div`
 
   display: flex;
   justify-content: center;
+  flex-wrap: wrap;
 
   & > div {
     margin: 0 0.5rem;
@@ -135,11 +141,20 @@ const StackIcons = styled.div`
 
 const IconContainer = styled.div`
   min-width: 100px;
+
+  /* @media only screen and (max-width: 815px) {
+    min-width: 60px;
+  } */
 `
 const Icon = styled.div`
   display: flex;
   justify-content: center;
   font-size: 3.1rem;
+  margin: 1rem 0;
+
+  /* @media only screen and (max-width: 815px) {
+    font-size: 2rem;
+  } */
 `
 const IconTitle = styled.div`
   text-align: center;
@@ -213,9 +228,7 @@ const About = () => {
             </Icon>
             <IconTitle>Yarn</IconTitle>
           </IconContainer>
-        </StackIcons>
 
-        <StackIcons>
           <IconContainer>
             <Icon>
               <FaNodeJs />

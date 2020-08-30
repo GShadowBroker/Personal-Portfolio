@@ -4,7 +4,7 @@ import colors from "../../constants/colors"
 export const ContactWrapper = styled.section``
 
 export const SectionTitle = styled.div`
-  font-size: 36px;
+  font-size: 2.2em;
   font-weight: 500;
   margin: auto;
   padding-bottom: 0.5rem;
@@ -26,8 +26,13 @@ export const SectionTitle = styled.div`
 `
 
 export const ContactContainer = styled.div`
-  min-height: 100vh;
   display: flex;
+  align-items: center;
+  margin: 5rem 0;
+
+  @media only screen and (max-width: 1000px) {
+    flex-direction: column;
+  }
 `
 export const FormTitle = styled.div`
   flex: 1;
@@ -38,14 +43,16 @@ export const FormTitle = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-`
-export const Title = styled.div`
-  /* text-align: start;
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%); */
 
-  font-size: 36px;
+  @media only screen and (max-width: 1000px) {
+    max-width: 80vw;
+    padding: 0;
+    margin-bottom: 4rem;
+  }
+`
+
+export const Title = styled.div`
+  font-size: 2.2em;
   font-weight: 600;
   margin-bottom: 2rem;
 `
@@ -53,12 +60,15 @@ export const Title = styled.div`
 export const FormContainer = styled.div`
   flex: 1;
   max-width: 50%;
+
+  @media only screen and (max-width: 1000px) {
+    max-width: 80vw;
+    min-width: 80vw;
+  }
 `
 
 export const Form = styled.form`
   position: relative;
-  top: 50%;
-  transform: translateY(-50%);
 `
 
 export const InputGroup = styled.div`

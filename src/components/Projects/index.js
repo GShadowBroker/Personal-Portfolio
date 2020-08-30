@@ -21,162 +21,24 @@ import {
 } from "react-icons/si"
 import ExternalLink from "../utils/ExternalLink"
 import useImage from "../utils/useImage"
-
-const ProjectsContainer = styled.section``
-
-const Title = styled.div`
-  font-size: 2.2em;
-  font-weight: 500;
-  margin: 2rem auto;
-  padding-bottom: 0.5rem;
-
-  position: relative;
-  width: fit-content;
-
-  &::after {
-    content: "";
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-
-    background: ${props => colors[props.theme].color};
-    height: 3px;
-    width: 50%;
-  }
-`
-
-const ProjectsWrapper = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin: 5rem 0 10rem 0;
-`
-
-const Project = styled.div`
-  width: 50%;
-  height: 18rem;
-
-  background-image: url(${props => props.path});
-  background-size: cover;
-  position: relative;
-  background-repeat: no-repeat;
-
-  @media only screen and (max-width: 2000px) {
-    height: 22rem;
-  }
-  @media only screen and (max-width: 1600px) {
-    height: 20rem;
-  }
-  @media only screen and (max-width: 1400px) {
-    height: 18rem;
-  }
-`
-
-const ProjectDetailsContainer = styled.div`
-  max-width: 50%;
-  padding: ${props => {
-    if (props.left) return "0 0 0 2rem"
-    else if (props.right) return "0 2rem 0 0"
-    else return 0
-  }};
-`
-
-const ProjectTitle = styled.h1`
-  color: ${colors.secondary};
-  margin-top: 0;
-  margin-bottom: 2rem;
-  padding-top: 0;
-  line-height: 0.5;
-`
-
-const ProjectLinks = styled.div`
-  margin-bottom: 2rem;
-  font-size: 1em;
-
-  display: flex;
-  div:not(:first-of-type) {
-    margin-left: 1rem;
-  }
-`
-const LinkContainer = styled.div`
-  display: flex;
-  align-items: center;
-  a {
-    margin-left: 0.5rem;
-  }
-`
-
-const ProjectDescription = styled.p`
-  text-align: justify;
-  line-height: 1.6;
-`
-
-const Technologies = styled.div`
-  margin-top: 2rem;
-  font-size: 2em;
-  display: flex;
-  align-items: center;
-`
-const Icon = styled.div`
-  min-width: 60px;
-`
-const Overlay = styled.div`
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-
-  opacity: 0;
-  transition: opacity 0.2s linear;
-
-  &:hover {
-    opacity: 1;
-  }
-`
-const ChevronLeft = styled.div`
-  cursor: pointer;
-  color: ${colors.secondary};
-  background: rgba(0, 0, 0, 0.1);
-  transition: background-color 0.2s linear;
-
-  display: flex;
-  position: absolute;
-  left: 0;
-  top: 50%;
-  transform: translateY(-50%);
-  padding: 1rem;
-
-  &:hover {
-    background: rgba(0, 0, 0, 0.2);
-  }
-`
-const ChevronRight = styled(ChevronLeft)`
-  left: auto;
-  right: 0;
-`
-const Controls = styled.div`
-  position: absolute;
-  background: rgba(0, 0, 0, 0.2);
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-
-  height: 30px;
-  width: fit-content;
-  padding: 1rem;
-
-  display: flex;
-  align-items: center;
-`
-const ImageCount = styled.div`
-  border: 1px solid ${colors.secondary};
-  background-color: ${props => (props.filled ? colors.secondary : "")};
-  cursor: pointer;
-  height: 10px;
-  width: 10px;
-  margin: 0 0.5rem;
-`
+import {
+  ProjectsContainer,
+  Title,
+  ProjectsWrapper,
+  Project,
+  ProjectDetailsContainer,
+  ProjectTitle,
+  ProjectLinks,
+  LinkContainer,
+  ProjectDescription,
+  Technologies,
+  Icon,
+  Overlay,
+  ChevronLeft,
+  ChevronRight,
+  Controls,
+  ImageCount,
+} from "./styles"
 
 const Projects = () => {
   const { theme } = useContext(themeContext)
@@ -187,7 +49,7 @@ const Projects = () => {
   return (
     <ProjectsContainer id="projects">
       <Title theme={theme}>PROJETOS</Title>
-      <ProjectsWrapper>
+      <ProjectsWrapper left>
         <Project path={require(`../../assets/orkut_${orkut.value.index}.png`)}>
           <Overlay>
             <ChevronLeft onClick={orkut.prevImage}>
@@ -273,7 +135,7 @@ const Projects = () => {
           </Technologies>
         </ProjectDetailsContainer>
       </ProjectsWrapper>
-      <ProjectsWrapper>
+      <ProjectsWrapper right>
         <ProjectDetailsContainer right>
           <ProjectTitle>Plataforma de e-commerce</ProjectTitle>
           <ProjectLinks>
@@ -378,7 +240,7 @@ const Projects = () => {
           </Overlay>
         </Project>
       </ProjectsWrapper>
-      <ProjectsWrapper>
+      <ProjectsWrapper left>
         <Project path={require(`../../assets/chess_${chess.value.index}.png`)}>
           <Overlay>
             <ChevronLeft onClick={chess.prevImage}>
@@ -438,7 +300,7 @@ const Projects = () => {
           </Technologies>
         </ProjectDetailsContainer>
       </ProjectsWrapper>
-      <ProjectsWrapper>
+      <ProjectsWrapper right>
         <ProjectDetailsContainer right>
           <ProjectTitle>Meu portfólio</ProjectTitle>
           <ProjectLinks>
