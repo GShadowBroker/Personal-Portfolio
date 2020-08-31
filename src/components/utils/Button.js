@@ -2,6 +2,7 @@ import React, { useContext } from "react"
 import styled from "styled-components"
 import { themeContext } from "../../utils/ThemeContext"
 import colors from "../../constants/colors"
+import { Link } from "gatsby"
 
 const SButton = styled.a`
   display: block;
@@ -46,7 +47,7 @@ const SButton = styled.a`
   }
 `
 
-const Button = ({ text, href, handleClick }) => {
+const Button = ({ text, handleClick }) => {
   const { theme } = useContext(themeContext)
   return (
     <SButton
@@ -55,7 +56,6 @@ const Button = ({ text, href, handleClick }) => {
       role="button"
       tabIndex={0}
       onClick={handleClick}
-      href={href}
     />
   )
 }

@@ -48,6 +48,7 @@ export const Project = styled.div`
   background-size: cover;
   position: relative;
   background-repeat: no-repeat;
+  background-position: center;
 
   @media only screen and (max-width: 1000px) {
     width: 80vw;
@@ -93,6 +94,7 @@ export const ProjectLinks = styled.div`
 export const LinkContainer = styled.div`
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
   a {
     margin-left: 0.5rem;
   }
@@ -108,6 +110,7 @@ export const Technologies = styled.div`
   font-size: 2em;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 
   @media only screen and (max-width: 815px) {
     font-size: 1.5em;

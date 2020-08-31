@@ -6,6 +6,7 @@ import dimensions from "../../constants/dimensions"
 import { themeContext } from "../../utils/ThemeContext"
 import colors from "../../constants/colors"
 import { GiHamburgerMenu } from "react-icons/gi"
+import { Link } from "gatsby"
 
 const Navbar = styled.nav`
   display: flex;
@@ -34,6 +35,16 @@ const Navbar = styled.nav`
 `
 
 const Logo = styled.div``
+
+const Menu = styled.ul`
+  &:hover > * {
+    transition: opacity 0.2s linear;
+    opacity: 0.4;
+  }
+  &:hover > *:hover {
+    opacity: 1;
+  }
+`
 
 const Social = styled.div`
   display: flex;
@@ -136,17 +147,17 @@ const Nav = () => {
   return (
     <Navbar>
       <Logo>{"<Gledyson />"}</Logo>
-      <ul>
+      <Menu>
         <li>
-          <a href="#about">sobre mim</a>
+          <Link to="/#about">sobre mim</Link>
         </li>
         <li>
-          <a href="#projects">projetos</a>
+          <Link to="/#projects">projetos</Link>
         </li>
         <li>
-          <a href="#contact">contato</a>
+          <Link to="/#contact">contato</Link>
         </li>
-      </ul>
+      </Menu>
       <Social>
         <ThemeSwitch onClick={handleThemeButton}>
           <SwitchButton theme={theme}>

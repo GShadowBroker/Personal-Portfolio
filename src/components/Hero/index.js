@@ -30,7 +30,12 @@ const Hero = () => {
             Eu amo construir aplicativos web e mobile. Atualmente sou
             desenvolvedor freelance, mas estou aberto a ofertas de emprego.
           </Text>
-          <Button text="ME CONTRATE" href="#contact" />
+          <Button
+            text="ME CONTRATE"
+            handleClick={() =>
+              document.querySelector("#contact").scrollIntoView()
+            }
+          />
         </Header>
       </HeroLeftPane>
       <HeroImageContainer theme={theme}>
