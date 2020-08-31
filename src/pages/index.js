@@ -6,9 +6,7 @@ import About from "../components/About"
 import Projects from "../components/Projects"
 import Contact from "../components/Contact"
 import Foot from "../components/Foot"
-
 import { ThemeContextProvider } from "../utils/ThemeContext"
-
 import styled from "styled-components"
 
 const Container = styled.div`

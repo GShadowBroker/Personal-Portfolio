@@ -52,6 +52,7 @@ const Button = ({ text, handleClick }) => {
   return (
     <SButton
       text={text}
+      aria-label={text}
       theme={theme}
       role="button"
       tabIndex={0}

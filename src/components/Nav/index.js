@@ -159,7 +159,7 @@ const Nav = () => {
         </li>
       </Menu>
       <Social>
-        <ThemeSwitch onClick={handleThemeButton}>
+        <ThemeSwitch aria-label="theme" onClick={handleThemeButton}>
           <SwitchButton theme={theme}>
             <Switch ref={themeButton} theme={theme} />
           </SwitchButton>

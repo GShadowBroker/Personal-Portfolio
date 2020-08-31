@@ -24,7 +24,7 @@ const Link = styled.a`
 
 const ExternalLink = ({ children, href, target }) => {
   return (
-    <Link href={href} target={target}>
+    <Link href={href} target={target} rel="noopener">
       {children}
     </Link>
   )
