@@ -9,12 +9,31 @@ import { GiHamburgerMenu } from "react-icons/gi"
 import { Link } from "gatsby"
 
 const Navbar = styled.nav`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   height: ${dimensions && dimensions.navbarHeight}px;
 
   font-weight: 500;
+  z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+
+  background: ${props => colors[props.theme].background};
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`
+
+const NavContainer = styled.div`
+  width: 85vw;
+  height: 100%;
+  margin: 0 auto;
+  padding: 0;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 
   ul {
     height: fit-content;
@@ -116,13 +135,14 @@ const Switch = styled.div`
 const Hamburguer = styled.div`
   font-size: 2em;
   display: none;
+  cursor: pointer;
 
   @media only screen and (max-width: 815px) {
     display: flex;
   }
 `
 
-const Nav = () => {
+const Nav = ({ toggleDrawer }) => {
   const themeButton = useRef(null)
   const { theme, toggleTheme } = useContext(themeContext)
 
@@ -132,6 +152,23 @@ const Nav = () => {
     } else {
       themeButton.current.style.left = "52%"
     }
+  }, [theme])
+
+  useEffect(() => {
+    const event = () => {
+      if (window.pageYOffset === 0) {
+        document.querySelector(".navbar").style.boxShadow = ``
+        return
+      }
+      document.querySelector(
+        ".navbar"
+      ).style.boxShadow = `2px 2px 6px ${colors[theme].navShadow}`
+    }
+
+    if (typeof window !== undefined) {
+      window.addEventListener("scroll", () => event())
+    }
+    return window.removeEventListener("scroll", () => event())
   }, [theme])
 
   const handleThemeButton = () => {
@@ -145,50 +182,57 @@ const Nav = () => {
   }
 
   return (
-    <Navbar>
-      <Logo>{"<Gledyson />"}</Logo>
-      <Menu>
-        <li>
-          <Link to="/#about">sobre mim</Link>
-        </li>
-        <li>
-          <Link to="/#projects">projetos</Link>
-        </li>
-        <li>
-          <Link to="/#contact">contato</Link>
-        </li>
-      </Menu>
-      <Social>
-        <ThemeSwitch aria-label="theme" onClick={handleThemeButton}>
-          <SwitchButton theme={theme}>
-            <Switch ref={themeButton} theme={theme} />
-          </SwitchButton>
-        </ThemeSwitch>
+    <Navbar theme={theme} className="navbar">
+      <NavContainer>
+        <Logo>{"<Gledyson />"}</Logo>
+        <Menu>
+          <li>
+            <Link to="/#about">sobre mim</Link>
+          </li>
+          <li>
+            <Link to="/#projects">projetos</Link>
+          </li>
+          <li>
+            <Link to="/#contact">contato</Link>
+          </li>
+        </Menu>
+        <Social>
+          <ThemeSwitch aria-label="theme" onClick={handleThemeButton}>
+            <SwitchButton theme={theme}>
+              <Switch ref={themeButton} theme={theme} />
+            </SwitchButton>
+          </ThemeSwitch>
 
-        <Icon hover={"#2867B2"}>
-          <a href={urls.github} target="_blank" title="GitHub" rel="noreferrer">
-            <AiFillGithub />
-          </a>
-        </Icon>
-        <Icon hover={"#2867B2"}>
-          <a
-            href={urls.linkedin}
-            target="_blank"
-            title="LinkedIn"
-            rel="noreferrer"
-          >
-            <AiFillLinkedin />
-          </a>
-        </Icon>
-        <Icon hover={"#d44638"} title="E-mail">
-          <a href={urls.email} rel="noreferrer">
-            <AiFillMail />
-          </a>
-        </Icon>
-      </Social>
-      <Hamburguer>
-        <GiHamburgerMenu />
-      </Hamburguer>
+          <Icon hover={"#2867B2"}>
+            <a
+              href={urls.github}
+              target="_blank"
+              title="GitHub"
+              rel="noreferrer"
+            >
+              <AiFillGithub />
+            </a>
+          </Icon>
+          <Icon hover={"#2867B2"}>
+            <a
+              href={urls.linkedin}
+              target="_blank"
+              title="LinkedIn"
+              rel="noreferrer"
+            >
+              <AiFillLinkedin />
+            </a>
+          </Icon>
+          <Icon hover={"#d44638"} title="E-mail">
+            <a href={urls.email} rel="noreferrer">
+              <AiFillMail />
+            </a>
+          </Icon>
+        </Social>
+        <Hamburguer onClick={toggleDrawer}>
+          <GiHamburgerMenu />
+        </Hamburguer>
+      </NavContainer>
     </Navbar>
   )
 }

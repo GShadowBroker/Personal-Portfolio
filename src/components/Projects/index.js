@@ -1,7 +1,5 @@
 import React, { useContext } from "react"
-import styled from "styled-components"
 import { themeContext } from "../../utils/ThemeContext"
-import colors from "../../constants/colors"
 import {
   FaReact,
   FaNodeJs,

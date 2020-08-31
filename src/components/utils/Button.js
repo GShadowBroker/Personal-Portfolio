@@ -2,7 +2,6 @@ import React, { useContext } from "react"
 import styled from "styled-components"
 import { themeContext } from "../../utils/ThemeContext"
 import colors from "../../constants/colors"
-import { Link } from "gatsby"
 
 const SButton = styled.a`
   display: block;

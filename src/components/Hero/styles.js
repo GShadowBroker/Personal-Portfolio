@@ -2,7 +2,7 @@ import styled from "styled-components"
 import colors from "../../constants/colors"
 
 export const HeroContainer = styled.div`
-  margin-top: 2rem;
+  margin-top: 5rem;
   height: 80vh;
   display: flex;
   align-items: center;

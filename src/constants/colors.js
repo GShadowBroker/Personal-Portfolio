@@ -1,7 +1,7 @@
 module.exports = {
   secondary: "#ff6348",
   error: "#ffa502",
-  darkGray: "# 57606f",
+  darkGray: "#57606f",
   light: {
     background: "#ffff",
     color: "#57606f",
@@ -11,6 +11,7 @@ module.exports = {
     textGray: "#a1a1a1",
     inputText: "#242933",
     footer: "#f1f2f6",
+    navShadow: "#bebebe",
   },
   dark: {
     background: "#2f3542",
@@ -21,5 +22,6 @@ module.exports = {
     textGray: "#cccccc",
     inputText: "#f1f2f6",
     footer: "#242933",
+    navShadow: "#242933",
   },
 }
