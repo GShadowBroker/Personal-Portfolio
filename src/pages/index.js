@@ -14,6 +14,19 @@ const Container = styled.div`
   flex: 1;
   padding: 0 0.6rem;
   max-width: 85vw;
+
+  opacity: 0;
+  @keyframes contentFadeIn {
+    0% {
+      opacity: 0;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  animation-name: contentFadeIn;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 `
 
 const Home = () => {

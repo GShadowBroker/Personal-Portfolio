@@ -5,6 +5,7 @@ import "../../stylesheets/global.css"
 import { themeContext } from "../../utils/ThemeContext"
 import { Helmet } from "react-helmet"
 import profileImage from "../../assets/profile.jpg"
+import favicon from "../../assets/favicon.png"
 
 const Global = styled.div`
   background-color: ${props => colors[props.theme].background};
@@ -23,6 +24,7 @@ const Layout = ({ children }) => {
         <html lang="pt-br" />
         <title>Gledyson Ferreira - Desenvolvedor Web</title>
         <link rel="canonical" href="https://gledyson.netlify.app/" />
+        <link rel="icon" href={favicon} />
 
         <meta name="title" content="Gledyson Ferreira - Desenvolvedor web" />
         <meta

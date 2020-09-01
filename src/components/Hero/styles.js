@@ -70,6 +70,22 @@ export const Image = styled.div`
 export const Headline = styled.div`
   font-size: 4em;
   line-height: 1.2;
+  opacity: 0;
+
+  @keyframes headlineFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateY(-40px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0px);
+    }
+  }
+  animation-name: headlineFadeIn;
+  animation-duration: 0.8s;
+  animation-delay: 0.4s;
+  animation-fill-mode: forwards;
 
   @media only screen and (max-width: 380px) {
     font-size: 3.5em;
@@ -79,6 +95,22 @@ export const SubHeadline = styled.div`
   color: ${colors.secondary};
   font-size: 2.5em;
   font-weight: 600;
+  opacity: 0;
+
+  @keyframes subheadlineFadeIn {
+    0% {
+      opacity: 0;
+      transform: translateX(-80px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0px);
+    }
+  }
+  animation-name: subheadlineFadeIn;
+  animation-duration: 0.8s;
+  animation-delay: 1.2s;
+  animation-fill-mode: forwards;
 
   @media only screen and (max-width: 380px) {
     font-size: 2em;

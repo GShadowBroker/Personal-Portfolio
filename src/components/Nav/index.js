@@ -53,8 +53,6 @@ const NavContainer = styled.div`
   }
 `
 
-const Logo = styled.div``
-
 const Menu = styled.ul`
   &:hover > * {
     transition: opacity 0.2s linear;
@@ -142,6 +140,12 @@ const Hamburguer = styled.div`
   }
 `
 
+const Logo = styled.div``
+
+const LogoImage = styled.img`
+  width: 160px;
+`
+
 const Nav = ({ toggleDrawer }) => {
   const themeButton = useRef(null)
   const { theme, toggleTheme } = useContext(themeContext)
@@ -184,7 +188,16 @@ const Nav = ({ toggleDrawer }) => {
   return (
     <Navbar theme={theme} className="navbar">
       <NavContainer>
-        <Logo>{"<Gledyson />"}</Logo>
+        <Logo>
+          <LogoImage
+            src={
+              theme === "dark"
+                ? require("../../assets/logo_white.png")
+                : require("../../assets/logo_dark.png")
+            }
+            alt="Gledyson Ferreira, Desenvolvedor Web"
+          />
+        </Logo>
         <Menu>
           <li>
             <Link to="/#about">sobre mim</Link>
