@@ -29,7 +29,7 @@ const NavContainer = styled.div`
   width: 85vw;
   height: 100%;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 0.6rem;
 
   display: flex;
   justify-content: space-between;
@@ -143,7 +143,7 @@ const Hamburguer = styled.div`
 const Logo = styled.div``
 
 const LogoImage = styled.img`
-  width: 160px;
+  width: 115px;
 `
 
 const Nav = ({ toggleDrawer }) => {

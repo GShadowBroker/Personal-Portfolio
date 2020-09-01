@@ -38,6 +38,7 @@ const Home = () => {
       setDrawerActive(true)
     }
   }
+
   return (
     <ThemeContextProvider>
       <Layout>
