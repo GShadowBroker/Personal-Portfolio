@@ -17,13 +17,26 @@ const ContactForm = () => {
   const { theme } = useContext(themeContext)
   const { register, handleSubmit, errors, reset } = useForm()
 
-  const onSubmit = (data, e) => {
+  /* function encode(data) {
+    const formData = new FormData();
+  
+    for (const key of Object.keys(data)) {
+      formData.append(key, data[key]);
+    }
+  
+    return formData;
+  } */
+
+  /* const onSubmit = (data, e) => {
     e.preventDefault()
-    const { email, name, content } = data
+
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encodeURI(`name=${name}&email=${email}&content=${content}`),
+      body: encode({
+        "form-name": form.getAttribute("name"),
+        ...data
+      }),
     })
       .then(response => {
         reset()
@@ -35,15 +48,15 @@ const ContactForm = () => {
       .catch(error => {
         console.log(error)
       })
-  }
+  } */
 
   return (
     <Form
-      onSubmit={handleSubmit(onSubmit)}
       name="Portfolio Contact"
       method="POST"
       data-netlify="true"
       netlify-honeypot="bot-field"
+      action="/"
     >
       <input type="hidden" name="bot-field" />
       <InputGroup>
@@ -127,11 +140,7 @@ const ContactForm = () => {
         )}
       </InputGroup>
       <ActionGroup>
-        <Button
-          type="submit"
-          text="ENVIAR"
-          handleClick={handleSubmit(onSubmit)}
-        />
+        <Button type="submit" text="ENVIAR" />
       </ActionGroup>
     </Form>
   )
