@@ -1,5 +1,5 @@
 import React, { useContext } from "react"
-import Buttom from "../utils/Button"
+import Button from "../utils/Button"
 import { themeContext } from "../../utils/ThemeContext"
 import {
   Form,
@@ -17,12 +17,32 @@ const ContactForm = () => {
   const { theme } = useContext(themeContext)
   const { register, handleSubmit, errors, reset } = useForm()
 
-  const onSubmit = (data, e) => {
+  /* const onSubmit = (data, e) => {
     const { email, name, content } = data
     if (!email || !name || !content) return
     console.table(data)
     reset()
     alert("Formulário enviado! Obrigado por entrar em contato.")
+  } */
+  const onSubmit = (data, e) => {
+    e.preventDefault()
+    const form = e.target
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: encode({
+        "form-name": "Portfolio Contact",
+        body: data,
+      }),
+    })
+      .then(response => {
+        reset()
+        navigate(form.getAttribute("action"))
+        console.log(response)
+      })
+      .catch(error => {
+        console.log(error)
+      })
   }
 
   return (
@@ -31,7 +51,10 @@ const ContactForm = () => {
       name="Portfolio Contact"
       method="POST"
       data-netlify="true"
+      netlify-honeypot="bot-field"
+      action="/"
     >
+      <input type="hidden" name="bot-field" />
       <InputGroup>
         <Label htmlFor="name">nome</Label>
         <Input
@@ -113,7 +136,7 @@ const ContactForm = () => {
         )}
       </InputGroup>
       <ActionGroup>
-        <Buttom
+        <Button
           type="submit"
           text="ENVIAR"
           handleClick={handleSubmit(onSubmit)}
