@@ -1,5 +1,4 @@
 import React, { useContext } from "react"
-import Button from "../utils/Button"
 import { themeContext } from "../../utils/ThemeContext"
 import {
   Form,
@@ -9,6 +8,7 @@ import {
   TextArea,
   ActionGroup,
   ErrorMessage,
+  SButton,
 } from "./styles"
 import { useForm } from "react-hook-form"
 import { BiError } from "react-icons/bi"
@@ -25,6 +25,8 @@ const ContactForm = () => {
 
   const onSubmit = (data, e) => {
     e.preventDefault()
+
+    console.log("submitting form", data)
 
     fetch("/", {
       method: "POST",
@@ -140,7 +142,7 @@ const ContactForm = () => {
         )}
       </InputGroup>
       <ActionGroup>
-        <Button type="submit" text="ENVIAR" onClick={handleSubmit(onSubmit)} />
+        <SButton type="submit" text="ENVIAR" theme={theme} tabIndex={0} />
       </ActionGroup>
     </Form>
   )
