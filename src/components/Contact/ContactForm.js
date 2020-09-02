@@ -17,25 +17,21 @@ const ContactForm = () => {
   const { theme } = useContext(themeContext)
   const { register, handleSubmit, errors, reset } = useForm()
 
-  /* function encode(data) {
-    const formData = new FormData();
-  
-    for (const key of Object.keys(data)) {
-      formData.append(key, data[key]);
-    }
-  
-    return formData;
-  } */
+  function encode(data) {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&")
+  }
 
-  /* const onSubmit = (data, e) => {
+  const onSubmit = (data, e) => {
     e.preventDefault()
 
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
       body: encode({
-        "form-name": form.getAttribute("name"),
-        ...data
+        "form-name": "portfolio_contact",
+        ...data,
       }),
     })
       .then(response => {
@@ -46,19 +42,23 @@ const ContactForm = () => {
         )
       })
       .catch(error => {
+        alert(
+          "Oops! Não conseguimos finalizar o envio da sua mensagem. Você pode também entrar em contato pelo e-mail: gledysonferreira@gmail.com"
+        )
         console.log(error)
       })
-  } */
+  }
 
   return (
     <Form
-      name="Portfolio Contact"
+      name="portfolio_contact"
       method="POST"
       data-netlify="true"
       netlify-honeypot="bot-field"
-      action="/"
+      onSubmit={handleSubmit(onSubmit)}
     >
       <input type="hidden" name="bot-field" />
+      <input type="hidden" name="form-name" value="portfolio_contact" />
       <InputGroup>
         <Label htmlFor="name">nome</Label>
         <Input
@@ -140,8 +140,8 @@ const ContactForm = () => {
         )}
       </InputGroup>
       <ActionGroup>
-        {/* <Button type="submit" text="ENVIAR" /> */}
-        <button type="submit">enviar</button>
+        {/* <Button type="submit" text="ENVIAR" onClick={handleSubmit(onSubmit)} /> */}
+        <button type="submit">ENVIAR</button>
       </ActionGroup>
     </Form>
   )
