@@ -17,25 +17,20 @@ const ContactForm = () => {
   const { theme } = useContext(themeContext)
   const { register, handleSubmit, errors, reset } = useForm()
 
-  /* const onSubmit = (data, e) => {
-    const { email, name, content } = data
-    if (!email || !name || !content) return
-    console.table(data)
-    reset()
-    alert("Formulário enviado! Obrigado por entrar em contato.")
-  } */
   const onSubmit = (data, e) => {
     e.preventDefault()
-    const form = e.target
+    const { email, name, content } = data
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: data,
+      body: encodeURI(`name=${name}&email=${email}&content=${content}`),
     })
       .then(response => {
         reset()
-        navigate(form.getAttribute("action"))
         console.log(response)
+        alert(
+          "Obrigado por entrar em contato! Seu formulário foi enviado com sucesso."
+        )
       })
       .catch(error => {
         console.log(error)
@@ -44,7 +39,7 @@ const ContactForm = () => {
 
   return (
     <Form
-      onSubmit={onSubmit}
+      onSubmit={handleSubmit(onSubmit)}
       name="Portfolio Contact"
       method="POST"
       data-netlify="true"
