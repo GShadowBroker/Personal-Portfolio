@@ -30,10 +30,7 @@ const ContactForm = () => {
     fetch("/", {
       method: "POST",
       headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: encode({
-        "form-name": "Portfolio Contact",
-        body: data,
-      }),
+      body: data,
     })
       .then(response => {
         reset()
