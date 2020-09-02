@@ -142,7 +142,13 @@ const ContactForm = () => {
         )}
       </InputGroup>
       <ActionGroup>
-        <SButton type="submit" text="ENVIAR" theme={theme} tabIndex={0} />
+        <SButton
+          type="submit"
+          text="ENVIAR"
+          theme={theme}
+          tabIndex={0}
+          aria-label="enviar"
+        />
       </ActionGroup>
     </Form>
   )
