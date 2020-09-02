@@ -44,12 +44,11 @@ const ContactForm = () => {
 
   return (
     <Form
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={onSubmit}
       name="Portfolio Contact"
       method="POST"
       data-netlify="true"
       netlify-honeypot="bot-field"
-      action="/"
     >
       <input type="hidden" name="bot-field" />
       <InputGroup>
