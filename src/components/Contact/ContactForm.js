@@ -140,8 +140,7 @@ const ContactForm = () => {
         )}
       </InputGroup>
       <ActionGroup>
-        {/* <Button type="submit" text="ENVIAR" onClick={handleSubmit(onSubmit)} /> */}
-        <button type="submit">ENVIAR</button>
+        <Button type="submit" text="ENVIAR" onClick={handleSubmit(onSubmit)} />
       </ActionGroup>
     </Form>
   )
