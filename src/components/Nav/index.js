@@ -169,6 +169,8 @@ const Nav = ({ toggleDrawer }) => {
       ).style.boxShadow = `2px 2px 6px ${colors[theme].navShadow}`
     }
 
+    event() // If theme changes, the component rerenders and has to change box-shadow color
+
     if (typeof window !== undefined) {
       window.addEventListener("scroll", () => event())
     }
