@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import styled from "styled-components"
 import colors from "../../constants/colors"
 import "../../stylesheets/global.css"
@@ -6,6 +6,7 @@ import { themeContext } from "../../utils/ThemeContext"
 import { Helmet } from "react-helmet"
 import profileImage from "../../assets/profile.jpg"
 import favicon from "../../assets/favicon.png"
+import LoadingScreen from "../utils/LoadingScreen"
 
 const Global = styled.div`
   background-color: ${props => colors[props.theme].background};
@@ -16,10 +17,36 @@ const Global = styled.div`
 `
 
 const Layout = ({ children }) => {
-  const { theme } = useContext(themeContext)
+  const { theme, loadingTheme } = useContext(themeContext)
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 1.0,
+    }
+
+    const handleIntersect = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.parentElement.style.opacity = 1
+        }
+      })
+    }
+
+    const createObserver = (options, callback) => {
+      const observer = new IntersectionObserver(callback, options)
+      const targets = document.querySelectorAll(".section__title")
+      if (targets) {
+        targets.forEach(observer.observe.bind(observer))
+      }
+    }
+
+    createObserver(options, handleIntersect)
+  }, [loadingTheme])
 
   return (
-    <Global theme={theme}>
+    <>
       <Helmet>
         <html lang="pt-br" />
         <title>Gledyson Ferreira - Desenvolvedor Web</title>
@@ -56,8 +83,12 @@ const Layout = ({ children }) => {
         />
         <meta property="twitter:image" content={profileImage} />
       </Helmet>
-      {children}
-    </Global>
+      {loadingTheme ? (
+        <LoadingScreen />
+      ) : (
+        <Global theme={theme}>{children}</Global>
+      )}
+    </>
   )
 }
 

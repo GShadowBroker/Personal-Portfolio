@@ -1,5 +1,4 @@
 import React, { useRef, useContext, useEffect } from "react"
-import styled from "styled-components"
 import { AiFillGithub, AiFillLinkedin, AiFillMail } from "react-icons/ai"
 import urls from "../../constants/urls"
 import { themeContext } from "../../utils/ThemeContext"

@@ -319,8 +319,9 @@ const Projects = () => {
           <ProjectDescription>
             Este humilde portfólio foi feito com React, Styled Components e
             Gatsby. Mesmo tendo sido meu primeiro contato com Gatsby, minha
-            experiência com ele foi maravilhosa. Aprendi coisas novas sobre SEO,
-            detecção de idioma e internacionalização.
+            experiência com ele foi maravilhosa. Aprendi coisas novas sobre
+            otimização de SEO no Gatsby, integração de formulário com Netlify,
+            gerenciamento de tema (claro e escuro), entre muitas outras coisas.
           </ProjectDescription>
 
           <Technologies>
@@ -335,7 +336,11 @@ const Projects = () => {
             </Icon>
           </Technologies>
         </ProjectDetailsContainer>
-        <Project path={require("../../assets/portfolio_1.png")}></Project>
+        <Project
+          path={require(`../../assets/portfolio_${
+            theme === "dark" ? "light" : "dark"
+          }_1.png`)}
+        ></Project>
       </ProjectsWrapper>
     </ProjectsContainer>
   )
