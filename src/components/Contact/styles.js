@@ -147,13 +147,13 @@ export const SButton = styled.button`
     justify-content: center;
     align-items: center;
 
-    z-index: 100;
+    z-index: 10;
     height: 100%;
     width: 100%;
     background-color: ${colors.secondary};
     color: #ffff;
     font-family: inherit;
-    font-size: 1em;
+    font-size: 1.2em;
     font-weight: 800;
 
     position: absolute;

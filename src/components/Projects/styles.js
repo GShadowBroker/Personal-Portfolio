@@ -85,16 +85,20 @@ export const ProjectTitle = styled.h1`
 export const ProjectLinks = styled.div`
   margin-bottom: 2rem;
   font-size: 1em;
+  flex-wrap: wrap;
 
   display: flex;
-  div:not(:first-of-type) {
-    margin-left: 1rem;
+  div:not(:last-of-type) {
+    margin-right: 1rem;
+  }
+
+  @media only screen and (max-width: 515px) {
+    line-height: 2;
   }
 `
 export const LinkContainer = styled.div`
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
   a {
     margin-left: 0.5rem;
   }

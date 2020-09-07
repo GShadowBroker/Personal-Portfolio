@@ -109,7 +109,7 @@ export const SubHeadline = styled.div`
   }
   animation-name: subheadlineFadeIn;
   animation-duration: 0.8s;
-  animation-delay: 1.2s;
+  animation-delay: 0.8s;
   animation-fill-mode: forwards;
 
   @media only screen and (max-width: 380px) {
