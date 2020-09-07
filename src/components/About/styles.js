@@ -8,6 +8,8 @@ export const AboutContainer = styled.section`
   margin: auto;
   margin-top: 10rem;
   margin-bottom: 10rem;
+  opacity: 0;
+  transition: opacity 1s linear;
 `
 
 export const Title = styled.div`

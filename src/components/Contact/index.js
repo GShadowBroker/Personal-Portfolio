@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import ContactForm from "./ContactForm"
 import {
   ContactWrapper,
@@ -13,9 +13,10 @@ import { themeContext } from "../../utils/ThemeContext"
 
 const Contact = () => {
   const { theme } = useContext(themeContext)
+
   return (
     <ContactWrapper>
-      <SectionTitle id="contact" theme={theme}>
+      <SectionTitle id="contact" className="section__title" theme={theme}>
         CONTATO
       </SectionTitle>
       <ContactContainer>

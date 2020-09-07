@@ -46,7 +46,9 @@ const Projects = () => {
 
   return (
     <ProjectsContainer id="projects">
-      <Title theme={theme}>PROJETOS</Title>
+      <Title theme={theme} className="section__title">
+        PROJETOS
+      </Title>
       <ProjectsWrapper left>
         <Project path={require(`../../assets/orkut_${orkut.value.index}.png`)}>
           <Overlay>

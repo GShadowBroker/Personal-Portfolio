@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React, { useContext, useEffect } from "react"
 import { themeContext } from "../../utils/ThemeContext"
 import {
   FaHtml5,
@@ -32,9 +32,12 @@ import {
 
 const About = () => {
   const { theme } = useContext(themeContext)
+
   return (
     <AboutContainer id="about">
-      <Title theme={theme}>SOBRE MIM</Title>
+      <Title theme={theme} className="section__title">
+        SOBRE MIM
+      </Title>
       <Image theme={theme} />
       <Name theme={theme}>
         <div>Gledyson Ferreira dos Santos</div>

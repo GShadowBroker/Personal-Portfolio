@@ -1,7 +1,10 @@
 import styled from "styled-components"
 import colors from "../../constants/colors"
 
-export const ContactWrapper = styled.section``
+export const ContactWrapper = styled.section`
+  transition: all 1s linear;
+  opacity: 0;
+`
 
 export const SectionTitle = styled.div`
   font-size: 2.2em;

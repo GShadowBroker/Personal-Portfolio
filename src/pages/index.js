@@ -1,4 +1,4 @@
-import React, { useState } from "react"
+import React, { useState, useEffect } from "react"
 import Layout from "../components/Layout"
 import Nav from "../components/Nav"
 import Hero from "../components/Hero"
@@ -38,6 +38,32 @@ const Home = () => {
       setDrawerActive(true)
     }
   }
+
+  useEffect(() => {
+    const options = {
+      root: null,
+      rootMargin: "0px",
+      threshold: 1.0,
+    }
+
+    const handleIntersect = (entries, observer) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.parentElement.style.opacity = 1
+        }
+      })
+    }
+
+    const createObserver = (options, callback) => {
+      const observer = new IntersectionObserver(callback, options)
+      const targets = document.querySelectorAll(".section__title")
+      if (targets) {
+        targets.forEach(observer.observe.bind(observer))
+      }
+    }
+
+    createObserver(options, handleIntersect)
+  }, [])
 
   return (
     <ThemeContextProvider>

@@ -1,7 +1,10 @@
 import styled from "styled-components"
 import colors from "../../constants/colors"
 
-export const ProjectsContainer = styled.section``
+export const ProjectsContainer = styled.section`
+  opacity: 0;
+  transition: opacity 1s linear;
+`
 
 export const Title = styled.div`
   font-size: 2.2em;
