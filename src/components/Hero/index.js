@@ -11,6 +11,7 @@ import {
   SubHeadline,
   Header,
 } from "./styles"
+import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
 const Hero = () => {
   const { theme } = useContext(themeContext)
@@ -32,9 +33,14 @@ const Hero = () => {
           </Text>
           <Button
             text="ME CONTRATE"
-            handleClick={() =>
+            handleClick={() => {
               document.querySelector("#contact").scrollIntoView()
-            }
+              trackCustomEvent({
+                category: "Custom Button",
+                action: "Click",
+                label: "Botão me contrate",
+              })
+            }}
           />
         </Header>
       </HeroLeftPane>

@@ -3,6 +3,7 @@ import { themeContext } from "../../utils/ThemeContext"
 import { AiFillGithub, AiFillLinkedin, AiFillMail } from "react-icons/ai"
 import urls from "../../constants/urls"
 import { FooterContainer, Text, Social, Icon } from "./styles"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 
 const Foot = () => {
   const { theme } = useContext(themeContext)
@@ -22,24 +23,29 @@ const Foot = () => {
       </Text>
       <Social>
         <Icon hover={"#2867B2"}>
-          <a href={urls.github} target="_blank" title="GitHub" rel="noreferrer">
+          <OutboundLink
+            href={urls.github}
+            target="_blank"
+            title="GitHub"
+            rel="noreferrer"
+          >
             <AiFillGithub />
-          </a>
+          </OutboundLink>
         </Icon>
         <Icon hover={"#2867B2"}>
-          <a
+          <OutboundLink
             href={urls.linkedin}
             target="_blank"
             title="LinkedIn"
             rel="noreferrer"
           >
             <AiFillLinkedin />
-          </a>
+          </OutboundLink>
         </Icon>
         <Icon hover={"#d44638"}>
-          <a href={urls.email} title="E-mail">
+          <OutboundLink href={urls.email} title="E-mail">
             <AiFillMail />
-          </a>
+          </OutboundLink>
         </Icon>
       </Social>
     </FooterContainer>

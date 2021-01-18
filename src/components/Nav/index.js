@@ -6,6 +6,7 @@ import colors from "../../constants/colors"
 import { GiHamburgerMenu } from "react-icons/gi"
 import { WiNightClear, WiDaySunny } from "react-icons/wi"
 import { Link } from "gatsby"
+import { OutboundLink } from "gatsby-plugin-google-analytics"
 import {
   Navbar,
   NavContainer,
@@ -96,29 +97,29 @@ const Nav = ({ toggleDrawer }) => {
           </ThemeSwitch>
 
           <Icon hover={"#2867B2"}>
-            <a
+            <OutboundLink
               href={urls.github}
               target="_blank"
               title="GitHub"
               rel="noreferrer"
             >
               <AiFillGithub />
-            </a>
+            </OutboundLink>
           </Icon>
           <Icon hover={"#2867B2"}>
-            <a
+            <OutboundLink
               href={urls.linkedin}
               target="_blank"
               title="LinkedIn"
               rel="noreferrer"
             >
               <AiFillLinkedin />
-            </a>
+            </OutboundLink>
           </Icon>
           <Icon hover={"#d44638"} title="E-mail">
-            <a href={urls.email} rel="noreferrer">
+            <OutboundLink href={urls.email} rel="noreferrer">
               <AiFillMail />
-            </a>
+            </OutboundLink>
           </Icon>
         </Social>
         <Hamburguer onClick={toggleDrawer}>
