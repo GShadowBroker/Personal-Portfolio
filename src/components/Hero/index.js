@@ -27,7 +27,7 @@ const Hero = ({ heroDescription }) => {
           <SubHeadline style={{ marginBottom: "2rem" }}>
             desenvolvedor web.
           </SubHeadline>
-          <Text marginBottom={3}>{heroDescription || "undefined"}</Text>
+          <Text marginBottom={3}>{heroDescription}</Text>
           <Button
             text="ME CONTRATE"
             handleClick={() => {

@@ -32,7 +32,6 @@ import {
 
 const About = ({ aboutMe }) => {
   const { theme } = useContext(themeContext)
-  console.log("about me", aboutMe)
   return (
     <AboutContainer id="about">
       <Title theme={theme} className="section__title">
@@ -43,11 +42,7 @@ const About = ({ aboutMe }) => {
         <div>Gledyson Ferreira dos Santos</div>
         <div>DESENVOLVEDOR FULL-STACK JAVASCRIPT</div>
       </Name>
-      <Description>
-        Moro em Dourados, MS. Adoro aprender e construir coisas novas. Busco
-        sempre escrever código limpo, legível e escalável. Além da programação,
-        amo cozinhar, jogar video-games e praticar xadrez (1. d4!).
-      </Description>
+      <Description>{aboutMe}</Description>
       <Stack>
         <StackTitle>
           Algumas <span>tecnologias</span> com as quais me sinto confortável:
