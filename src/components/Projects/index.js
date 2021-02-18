@@ -16,6 +16,7 @@ import {
   SiGraphql,
   SiPostgresql,
   SiGatsby,
+  SiNetlify,
 } from "react-icons/si"
 import ExternalLink from "../utils/ExternalLink"
 import useImage from "../utils/useImage"
@@ -109,9 +110,9 @@ const Projects = ({ projects }) => {
             linha do tempo, álbum de fotos etc.
           </ProjectDescription>
           <ProjectDescription>
-            Trabalhar neste projeto foi uma experiência extremamente rica, pois
-            me permitiu aprofundar conhecimentos em várias tecnologias. Em
-            particular, aprendi muito sobre o uso de GraphQL e Apollo.
+            Trabalhar neste projeto foi uma experiência extremamente rica que me
+            permitiu aprofundar conhecimentos em diversas tecnologias como
+            GraphQL e Apollo.
           </ProjectDescription>
           <Technologies>
             <Icon>
@@ -172,11 +173,12 @@ const Projects = ({ projects }) => {
             </ExternalLink>
             , que permite adicionar itens ao carrinho de compras, finalizar a
             compra e redirecionar o usuário ao sandbox do PagSeguro como se
-            fosse uma operação real.
+            fosse uma operação de compra real.
           </ProjectDescription>
           <ProjectDescription>
-            Quando trabalhei neste aplicativo, aprendi muito sobre o Express,
-            sobre segurança de dados, sobre PostgreSQL e Sequelize ORM.
+            Quando trabalhei neste aplicativo, pude colocar em prática
+            conhecimentos sobre o Express, segurança de dados, PostgreSQL e
+            Sequelize ORM.
           </ProjectDescription>
           <Technologies>
             <Icon>
@@ -285,13 +287,16 @@ const Projects = ({ projects }) => {
           </ProjectLinks>
           <ProjectDescription>
             Um temporizador de xadrez online que permite customizar o timer e o
-            incremento de cada jogada. Construído inteiramente no React e em CSS
-            vanilla.
+            incremento de cada jogada. Use-o no computador ou celular para
+            controlar o tempo das jogadas. Construído inteiramente no React e em
+            CSS vanilla.
           </ProjectDescription>
           <ProjectDescription>
-            Neste projeto, aprendi lições valiosas sobre componentes de classe
-            no React e suas nuances comparado a componentes funcionais com
-            hooks.
+            Este foi um dos meus primeiros projetos em ReactJS. Nele, busquei
+            fazer uso dos componentes de classe e dos novos componentes
+            funcionais com hooks. Com isso, pude demonstrar as nuances de ambas
+            as abordagens, tanto no que se refere à sintaxe quanto à forma como
+            elas tratam o 'estado' da aplicação.
           </ProjectDescription>
           <Technologies>
             <Icon>
@@ -317,11 +322,13 @@ const Projects = ({ projects }) => {
           </ProjectLinks>
 
           <ProjectDescription>
-            Este humilde portfólio foi feito com React, Styled Components e
-            Gatsby. Mesmo tendo sido meu primeiro contato com Gatsby, minha
-            experiência com ele foi maravilhosa. Aprendi coisas novas sobre
-            otimização de SEO no Gatsby, integração de formulário com Netlify,
-            gerenciamento de tema (claro e escuro), entre muitas outras coisas.
+            Este é meu humilde portfólio feito com React, Styled Components,
+            Gatsby e Netlify CMS. Nele, busquei empregar um design ao mesmo
+            tempo minimalista e moderno. O meu objetivo foi construir um site
+            estático baseado em javascript que fosse rápido e que pudesse contar
+            com boa otimização de SEO, gerenciamento de tema (claro e escuro),
+            integração de formulário com a Netlify e habilidade de facilmente
+            editar o conteúdo do site com Netlify CMS.
           </ProjectDescription>
 
           <Technologies>
@@ -333,6 +340,9 @@ const Projects = ({ projects }) => {
             </Icon>
             <Icon>
               <SiStyledComponents title="Styled Components" />
+            </Icon>
+            <Icon>
+              <SiNetlify title="Netlify e Netlify CMS" />
             </Icon>
           </Technologies>
         </ProjectDetailsContainer>
