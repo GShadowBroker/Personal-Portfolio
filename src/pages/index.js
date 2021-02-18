@@ -41,6 +41,12 @@ const Home = () => {
             frontmatter {
               hero_description
               about_me
+              description
+              repo
+              screenshot
+              technologies
+              title
+              url
             }
           }
         }
@@ -51,6 +57,10 @@ const Home = () => {
   const { hero_description, about_me } = data?.allMarkdownRemark.edges.filter(
     e => !!e.node.frontmatter.hero_description
   )[0]?.node.frontmatter
+
+  const projects = data?.allMarkdownRemark.edges
+    .filter(e => !!e.node.frontmatter.title && !!e.node.frontmatter.description)
+    .map(n => n.node.frontmatter)
 
   const toggleDrawer = () => {
     if (drawerActive) {
@@ -68,7 +78,7 @@ const Home = () => {
           <Nav toggleDrawer={toggleDrawer} />
           <Hero heroDescription={hero_description} />
           <About aboutMe={about_me} />
-          <Projects />
+          <Projects projects={projects} />
           <Contact />
         </Container>
         <Foot />

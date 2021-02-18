@@ -38,7 +38,7 @@ import {
   ImageCount,
 } from "./styles"
 
-const Projects = () => {
+const Projects = ({ projects }) => {
   const { theme } = useContext(themeContext)
   const orkut = useImage(4)
   const shop = useImage(4)
