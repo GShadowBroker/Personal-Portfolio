@@ -10,7 +10,7 @@ collections:
     files:
       - name: content
         label: Content
-        file: site/content.md
+        file: site/page/content.md
         fields:
           - { name: hero_description, label: Hero_Description, widget: string }
   - name: project
