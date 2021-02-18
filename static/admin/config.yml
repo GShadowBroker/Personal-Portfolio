@@ -1,9 +1,10 @@
 backend:
   name: github
   repo: GShadowBroker/Personal-Portfolio
-  # name: test-repo
 media_folder: static/assets
 public_folder: /assets
+locale: "pt"
+logo_url: https://raw.githubusercontent.com/GShadowBroker/Personal-Portfolio/master/src/assets/logo_dark.png
 collections:
   - name: page
     label: Page
@@ -12,21 +13,64 @@ collections:
         label: Content
         file: site/page/content.md
         fields:
-          - { name: hero_description, label: Hero_Description, widget: string }
-          - { name: about_me, label: About_Me, widget: string }
+          - {
+              name: hero_description,
+              label: Hero_Description,
+              widget: string,
+              hint: Esta é a descrição principal na página inicial.,
+            }
+          - {
+              name: about_me,
+              label: About_Me,
+              widget: string,
+              hint: Fale sobre você,
+            }
   - name: project
     label: Project
     folder: site/project
     create: true
     fields:
       - { name: title, label: Title }
-      - { name: url, label: URL, required: false }
-      - { name: repo, label: Repo }
+      - { name: url, label: URL, required: false, hint: Link para o projeto }
+      - { name: repo, label: Repo, hint: Link para o repositório }
       - {
           name: screenshot,
           label: Screenshot,
           widget: image,
+          hint: Screenshot(s) do projeto,
           media_library: { config: { multiple: true } },
         }
       - { name: description, label: Description, widget: markdown }
-      - { name: technologies, label: Technologies, widget: list }
+      - {
+          name: technologies,
+          label: Technologies,
+          hint: Tecnologias usadas separadas por vírgula,
+          widget: list,
+        }
+  - name: blog
+    label: Blog
+    folder: site/blog
+    create: true
+    fields:
+      - { name: path, label: Path, hint: Endereço do blog (/meu-primeiro-blog) }
+      - { name: date, label: Date, widget: datetime }
+      - { name: title, label: Title }
+      - {
+          name: description,
+          label: Description,
+          hint: Descrição do blog para SEO,
+        }
+      - {
+          name: thumbnail,
+          label: Thumbnail,
+          widget: image,
+          hint: A thumbnail que representará o blog,
+          media_library: { config: { multiple: false } },
+        }
+      - { name: body, label: Body, widget: markdown }
+      - {
+          name: tag,
+          label: Tag,
+          widget: list,
+          hint: Tags usadas separadas por vírgula para SEO,
+        }
