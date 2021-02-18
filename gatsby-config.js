@@ -19,5 +19,13 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify-cms`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `project`,
+        path: `${__dirname}/site/project`,
+      },
+    },
+    `gatsby-transformer-remark`,
   ],
 }

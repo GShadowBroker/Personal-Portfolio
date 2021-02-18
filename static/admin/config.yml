@@ -1,6 +1,7 @@
 backend:
   name: github
   repo: GShadowBroker/Personal-Portfolio
+  # name: test-repo
 media_folder: static/assets
 public_folder: /assets
 collections:
@@ -14,7 +15,7 @@ collections:
           - { name: hero_description, label: Hero_Description, widget: string }
   - name: project
     label: Project
-    folder: project
+    folder: site/project
     create: true
     fields:
       - { name: title, label: Title }
