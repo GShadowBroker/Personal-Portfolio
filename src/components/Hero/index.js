@@ -12,9 +12,28 @@ import {
   Header,
 } from "./styles"
 import { trackCustomEvent } from "gatsby-plugin-google-analytics"
+import { graphql, useStaticQuery } from "gatsby"
 
 const Hero = () => {
   const { theme } = useContext(themeContext)
+
+  const data = useStaticQuery(graphql`
+    query MyQuery {
+      allMarkdownRemark {
+        edges {
+          node {
+            frontmatter {
+              hero_description
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const heroDescription = data?.allMarkdownRemark.edges.filter(
+    e => !!e.node.frontmatter.hero_description
+  )[0]?.node.frontmatter.hero_description
 
   return (
     <HeroContainer>
@@ -27,10 +46,7 @@ const Hero = () => {
           <SubHeadline style={{ marginBottom: "2rem" }}>
             desenvolvedor web.
           </SubHeadline>
-          <Text marginBottom={3}>
-            Eu amo construir aplicativos web e mobile. Atualmente sou
-            desenvolvedor freelance, mas estou aberto a ofertas de emprego.
-          </Text>
+          <Text marginBottom={3}>{heroDescription || "undefined"}</Text>
           <Button
             text="ME CONTRATE"
             handleClick={() => {
