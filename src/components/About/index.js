@@ -30,9 +30,9 @@ import {
   IconTitle,
 } from "./styles"
 
-const About = () => {
+const About = ({ aboutMe }) => {
   const { theme } = useContext(themeContext)
-
+  console.log("about me", aboutMe)
   return (
     <AboutContainer id="about">
       <Title theme={theme} className="section__title">

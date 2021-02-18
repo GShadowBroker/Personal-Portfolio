@@ -9,6 +9,7 @@ import Foot from "../components/Foot"
 import { ThemeContextProvider } from "../utils/ThemeContext"
 import styled from "styled-components"
 import Drawer from "../components/Nav/Drawer"
+import { graphql, useStaticQuery } from "gatsby"
 
 const Container = styled.div`
   flex: 1;
@@ -32,6 +33,25 @@ const Container = styled.div`
 const Home = () => {
   const [drawerActive, setDrawerActive] = useState(false)
 
+  const data = useStaticQuery(graphql`
+    query MyQuery {
+      allMarkdownRemark {
+        edges {
+          node {
+            frontmatter {
+              hero_description
+              about_me
+            }
+          }
+        }
+      }
+    }
+  `)
+
+  const { hero_description, about_me } = data?.allMarkdownRemark.edges.filter(
+    e => !!e.node.frontmatter.hero_description
+  )[0]?.node.frontmatter
+
   const toggleDrawer = () => {
     if (drawerActive) {
       setDrawerActive(false)
@@ -46,8 +66,8 @@ const Home = () => {
         <Drawer toggleDrawer={toggleDrawer} active={drawerActive} />
         <Container>
           <Nav toggleDrawer={toggleDrawer} />
-          <Hero />
-          <About />
+          <Hero heroDescription={hero_description} />
+          <About aboutMe={about_me} />
           <Projects />
           <Contact />
         </Container>

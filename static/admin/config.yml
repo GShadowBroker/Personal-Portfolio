@@ -13,6 +13,7 @@ collections:
         file: site/page/content.md
         fields:
           - { name: hero_description, label: Hero_Description, widget: string }
+          - { name: about_me, label: About_Me, widget: string }
   - name: project
     label: Project
     folder: site/project
