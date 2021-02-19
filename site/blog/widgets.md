@@ -1,5 +1,5 @@
 ---
-path: /widget
+path: /blog/widget
 date: 2021-02-18T22:20:58.814Z
 title: Widgets
 description: Widgets define the data type and interface for entry fields. Know
