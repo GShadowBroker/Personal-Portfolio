@@ -29,13 +29,13 @@ const Hero = ({ heroDescription }) => {
           </SubHeadline>
           <Text marginBottom={3}>{heroDescription}</Text>
           <Button
-            text="VAMOS CONVERSAR"
+            text="CONTATO"
             handleClick={() => {
               document.querySelector("#contact").scrollIntoView()
               trackCustomEvent({
                 category: "Custom Button",
                 action: "Click",
-                label: "Botão VAMOS CONVERSAR",
+                label: "Botão contato",
               })
             }}
           />
