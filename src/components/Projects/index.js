@@ -105,14 +105,18 @@ const Projects = ({ projects }) => {
             </LinkContainer>
           </ProjectLinks>
           <ProjectDescription>
-            Um clone full-stack da rede social que emula várias funcionalidades
-            do site antigo, como scraps, depoimentos, criação de comunidades,
-            linha do tempo, álbum de fotos etc.
+            Esta é uma réplica full-stack da rede social. O projeto emula várias
+            funcionalidades do site antigo, incluindo scraps, depoimentos,
+            criação de comunidades, linha do tempo, álbum de fotos, habilidade
+            de adicionar amigos à sua rede etc.
           </ProjectDescription>
           <ProjectDescription>
-            Trabalhar neste projeto foi uma experiência extremamente rica que me
-            permitiu aprofundar conhecimentos em diversas tecnologias como
-            GraphQL e Apollo.
+            Neste projeto, pude aplicar conhecimentos sobre tecnologias como
+            Apollo e GraphQL em uma aplicação real. O app é feito com backend
+            feito em NodeJS, Apollo Server/GraphQL, Cloudinary (hospedagem de
+            imagens) e PostgreSQL, com autenticação customizada baseada em JSON
+            web tokens. No frontend, utilizei ReactJS, Styled Components, Apollo
+            Client/GraphQL, entre outros.
           </ProjectDescription>
           <Technologies>
             <Icon>
@@ -162,8 +166,8 @@ const Projects = ({ projects }) => {
             </LinkContainer>
           </ProjectLinks>
           <ProjectDescription>
-            Esta é uma loja virtual fictícia construída com NodeJS, Express e
-            Pug (Jade). É uma loja totalmente funcional, integrada com o{" "}
+            Esta é uma loja virtual fictícia totalmente customizada e construída
+            com NodeJS, Express e Pug (Jade). O app consome a API do{" "}
             <ExternalLink
               href="https://pagseguro.uol.com.br/"
               target="_blank"
@@ -172,8 +176,8 @@ const Projects = ({ projects }) => {
               PagSeguro
             </ExternalLink>
             , que permite adicionar itens ao carrinho de compras, finalizar a
-            compra e redirecionar o usuário ao sandbox do PagSeguro como se
-            fosse uma operação de compra real.
+            compra e redirecionar o usuário ao sandbox do PagSeguro, processando
+            a compra como se fosse uma operação real.
           </ProjectDescription>
           <ProjectDescription>
             Quando trabalhei neste aplicativo, pude colocar em prática
@@ -294,9 +298,9 @@ const Projects = ({ projects }) => {
           <ProjectDescription>
             Este foi um dos meus primeiros projetos em ReactJS. Nele, busquei
             fazer uso dos componentes de classe e dos novos componentes
-            funcionais com hooks. Com isso, pude demonstrar as nuances de ambas
-            as abordagens, tanto no que se refere à sintaxe quanto à forma como
-            elas tratam o 'estado' da aplicação.
+            funcionais com hooks. Com isso, pude estudar as nuances de ambas as
+            abordagens referente à sintaxe e como elas lidam com estado da
+            aplicação.
           </ProjectDescription>
           <Technologies>
             <Icon>
@@ -324,11 +328,11 @@ const Projects = ({ projects }) => {
           <ProjectDescription>
             Este é meu humilde portfólio feito com React, Styled Components,
             Gatsby e Netlify CMS. Nele, busquei empregar um design ao mesmo
-            tempo minimalista e moderno. O meu objetivo foi construir um site
-            estático baseado em javascript que fosse rápido e que pudesse contar
-            com boa otimização de SEO, gerenciamento de tema (claro e escuro),
-            integração de formulário com a Netlify e habilidade de facilmente
-            editar o conteúdo do site com Netlify CMS.
+            tempo minimalista quanto moderno. O meu objetivo foi construir um
+            site estático baseado em javascript que fosse rápido e que pudesse
+            contar com boa otimização de SEO, gerenciamento de tema (claro e
+            escuro), integração de formulário com a Netlify e habilidade de
+            facilmente editar o conteúdo do site com Netlify CMS.
           </ProjectDescription>
 
           <Technologies>
