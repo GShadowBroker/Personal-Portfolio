@@ -8,7 +8,6 @@ tag:
   - test
   - gatsby
   - blog
-  - ""
 ---
 Esta é uma postagem teste feita para demonstrar como um blog criado no CMS deverá ser exibido no componente do React.
 
