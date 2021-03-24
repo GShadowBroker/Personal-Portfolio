@@ -40,7 +40,7 @@ const About = ({ aboutMe }) => {
       <Image theme={theme} />
       <Name theme={theme}>
         <div>Gledyson Ferreira dos Santos</div>
-        <div>DESENVOLVEDOR FULL-STACK JAVASCRIPT</div>
+        <div>DESENVOLVEDOR JAVASCRIPT</div>
       </Name>
       <Description>{aboutMe}</Description>
       <Stack>

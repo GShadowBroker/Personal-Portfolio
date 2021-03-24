@@ -5,8 +5,6 @@ import {
   FaNodeJs,
   FaSass,
   FaBootstrap,
-  FaChevronLeft,
-  FaChevronRight,
   FaLink,
   FaGithub,
 } from "react-icons/fa"
@@ -19,7 +17,6 @@ import {
   SiNetlify,
 } from "react-icons/si"
 import ExternalLink from "../utils/ExternalLink"
-import useImage from "../utils/useImage"
 import {
   ProjectsContainer,
   Title,
@@ -32,330 +29,235 @@ import {
   ProjectDescription,
   Technologies,
   Icon,
-  Overlay,
-  ChevronLeft,
-  ChevronRight,
-  Controls,
-  ImageCount,
 } from "./styles"
+import InfiniteCarousel from "react-leaf-carousel"
+import parseHtml from "../utils/parseHtml"
 
-const Projects = ({ projects }) => {
+const Projects = () => {
   const { theme } = useContext(themeContext)
-  const orkut = useImage(4)
-  const shop = useImage(4)
-  const chess = useImage(2)
+
+  const projects = [
+    {
+      title: "Clone do Orkut",
+      description: `
+        <p>Réplica full-stack da rede social. O projeto emula várias
+        funcionalidades do site antigo, incluindo scraps, depoimentos,
+        criação de comunidades, linha do tempo, álbum de fotos, habilidade
+        de adicionar amigos à sua rede etc.</p>
+        <p>O app emprega Apollo e GraphQL como linguagem de comunicação da API.
+        O backend é construído na linguagem NodeJS utilizando Apollo Server/GraphQL, Cloudinary (hospedagem de
+        imagens) e PostgreSQL, com autenticação customizada baseada em JSON
+        web tokens. No frontend, foi feito uso de ReactJS, Styled Components, Apollo
+        Client/GraphQL, entre outros.</p>
+      `,
+      links: {
+        preview: "https://orkutnostalgia.netlify.app",
+        frontend_repo: "https://github.com/GShadowBroker/orkut-clone-client",
+        backend_repo: "https://github.com/GShadowBroker/orkut-clone-server",
+        single_repo: "",
+      },
+      images: ["orkut_1.png", "orkut_2.png", "orkut_3.png", "orkut_4.png"],
+      tags: [
+        "ReactJS",
+        "StyledComponents",
+        "Apollo",
+        "NodeJS",
+        "GraphQL",
+        "PostgreSQL",
+      ],
+    },
+
+    {
+      title: "Lojinha fictícia de celulares",
+      description: `
+        <p>Loja virtual fictícia construída
+        com NodeJS, Express e Pug (Jade). O app consome a API do
+        <a href="https://pagseguro.uol.com.br/">PagSeguro</a>, que permite adicionar itens ao carrinho de compras, finalizar a
+        compra e redirecionar o usuário ao sandbox do PagSeguro, processando
+        a compra como se fosse uma operação real.</p>
+        <p>O app é renderizado no servidor (SSR) e utiliza Express, PostgreSQL, Sequelize ORM e Pug, entre outras tecnologias.
+        Foi um dos meus primeiros apps fullstack, mas não poderia deixar de expô-lo no meu portfólio.</p>
+      `,
+      links: {
+        preview: "https://minhalojadecelulares.herokuapp.com/",
+        frontend_repo: "",
+        backend_repo: "",
+        single_repo: "https://github.com/GShadowBroker/minhaloja",
+      },
+      images: ["loja_1.png", "loja_2.png", "loja_3.png", "loja_4.png"],
+      tags: ["NodeJS", "Express", "pug", "PostgreSQL", "Bootstrap", "Sass"],
+    },
+
+    {
+      title: "Temporizador de xadrez",
+      description: `
+        <p>Um temporizador de xadrez online que permite customizar o timer e o
+        incremento de cada jogada. Feito para ser usado no computador ou celular para
+        controlar o tempo das jogadas. Construído inteiramente no React e em
+        CSS vanilla.</p>
+      `,
+      links: {
+        preview: "https://onlinechessclock.netlify.app/",
+        frontend_repo: "",
+        backend_repo: "",
+        single_repo: "https://github.com/GShadowBroker/Chess-Clock-React-App",
+      },
+      images: ["chess_1.png", "chess_2.png"],
+      tags: ["NodeJS", "Express", "pug", "PostgreSQL", "Bootstrap", "Sass"],
+    },
+
+    {
+      title: "RC Advocacia",
+      description: `
+        <p>Feito com ReactJS, Styled Components,
+        Gatsby e Contentful CMS. O site permite ao proprietário editar o conteúdo da página e criar
+        postagens no blog utilizando a interface de edição do Contentful. Otimização de imagens com
+        Gatsby-Image e integração com Netlify forms.</p>
+      `,
+      links: {
+        preview: "https://advocaciarosangelacaetano.com.br/",
+        frontend_repo: "",
+        backend_repo: "",
+        single_repo: "",
+      },
+      images: ["office_1.png", "office_2.png", "office_3.png", "office_4.png"],
+      tags: ["ReactJS", "Gatsby", "StyledComponents", "Netlify"],
+    },
+
+    {
+      title: "Meu portfólio",
+      description: `
+        <p>Também feito com ReactJS, Styled Components,
+        Gatsby e Netlify CMS. O site permite alternar entre os temas claro e escuro usando
+        Context API do React. Evento de scroll customizado usando apenas a API Interception Observer.
+        Hospedado na Netlify e integrado com Netlify Forms.</p>
+      `,
+      links: {
+        preview: "/",
+        frontend_repo: "",
+        backend_repo: "",
+        single_repo: "https://github.com/GShadowBroker/Personal-Portfolio",
+      },
+      images: ["portfolio_light_1.png", "portfolio_dark_1.png"],
+      tags: ["ReactJS", "Gatsby", "StyledComponents", "Netlify"],
+    },
+  ]
+
+  const icons = {
+    ReactJS: <FaReact title="React JS" />,
+    NodeJS: <FaNodeJs title="Node JS" />,
+    Sass: <FaSass title="SASS" />,
+    Bootstrap: <FaBootstrap title="Bootstrap" />,
+    StyledComponents: <SiStyledComponents title="Styled Components" />,
+    Apollo: <SiApollographql title="Apollo" />,
+    GraphQL: <SiGraphql title="GraphQL" />,
+    PostgreSQL: <SiPostgresql title="PostgreSQL" />,
+    Gatsby: <SiGatsby title="Gatsby" />,
+    Netlify: <SiNetlify title="Netlify" />,
+    pug: (
+      <span
+        style={{ fontSize: ".7em", marginBottom: 4, paddingRight: 10 }}
+        title="pug"
+      >
+        pug
+      </span>
+    ),
+    Express: (
+      <span style={{ fontSize: ".5em", paddingRight: 10 }} title="Express">
+        EXPRESS
+      </span>
+    ),
+  }
 
   return (
     <ProjectsContainer id="projects">
       <Title theme={theme} className="section__title">
         PROJETOS
       </Title>
-      <ProjectsWrapper left>
-        <Project path={require(`../../assets/orkut_${orkut.value.index}.png`)}>
-          <Overlay>
-            <ChevronLeft onClick={orkut.prevImage}>
-              <FaChevronLeft />
-            </ChevronLeft>
-            <ChevronRight onClick={orkut.nextImage}>
-              <FaChevronRight />
-            </ChevronRight>
-            <Controls>
-              {Array.from(Array(orkut.value.total).keys()).map((i, index) => (
-                <ImageCount
-                  key={index}
-                  onClick={() => orkut.jumpToImage(index + 1)}
-                  filled={orkut.value.index === index + 1}
-                />
-              ))}
-            </Controls>
-          </Overlay>
-        </Project>
-        <ProjectDetailsContainer left>
-          <ProjectTitle>Clone do Orkut</ProjectTitle>
-          <ProjectLinks>
-            <LinkContainer>
-              <FaLink />
-              <ExternalLink
-                href="https://orkutnostalgia.netlify.app"
-                target="_blank"
-                rel="noreferrer"
-              >
-                visitar
-              </ExternalLink>
-            </LinkContainer>
-            <LinkContainer>
-              <FaGithub />
-              <ExternalLink
-                href="https://github.com/GShadowBroker/orkut-clone-server"
-                target="_blank"
-                rel="noreferrer"
-              >
-                backend
-              </ExternalLink>
-            </LinkContainer>
-            <LinkContainer>
-              <FaGithub />
-              <ExternalLink
-                href="https://github.com/GShadowBroker/orkut-clone-client"
-                target="_blank"
-                rel="noreferrer"
-              >
-                front-end
-              </ExternalLink>
-            </LinkContainer>
-          </ProjectLinks>
-          <ProjectDescription>
-            Esta é uma réplica full-stack da rede social. O projeto emula várias
-            funcionalidades do site antigo, incluindo scraps, depoimentos,
-            criação de comunidades, linha do tempo, álbum de fotos, habilidade
-            de adicionar amigos à sua rede etc.
-          </ProjectDescription>
-          <ProjectDescription>
-            Neste projeto, pude aplicar conhecimentos sobre tecnologias como
-            Apollo e GraphQL em uma aplicação real. O app é feito com backend
-            feito em NodeJS, Apollo Server/GraphQL, Cloudinary (hospedagem de
-            imagens) e PostgreSQL, com autenticação customizada baseada em JSON
-            web tokens. No frontend, utilizei ReactJS, Styled Components, Apollo
-            Client/GraphQL, entre outros.
-          </ProjectDescription>
-          <Technologies>
-            <Icon>
-              <FaReact title="ReactJS" />
-            </Icon>
-            <Icon>
-              <SiStyledComponents title="Styled Components" />
-            </Icon>
-            <Icon>
-              <SiApollographql title="Apollo" />
-            </Icon>
-            <Icon>
-              <FaNodeJs title="NodeJS" />
-            </Icon>
-            <Icon>
-              <SiGraphql title="GraphQL" />
-            </Icon>
-            <Icon>
-              <SiPostgresql title="PostgreSQL" />
-            </Icon>
-          </Technologies>
-        </ProjectDetailsContainer>
-      </ProjectsWrapper>
-      <ProjectsWrapper right>
-        <ProjectDetailsContainer right>
-          <ProjectTitle>Plataforma de e-commerce</ProjectTitle>
-          <ProjectLinks>
-            <LinkContainer>
-              <FaLink />
-              <ExternalLink
-                href="https://minhalojadecelulares.herokuapp.com/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                visitar
-              </ExternalLink>
-            </LinkContainer>
-            <LinkContainer>
-              <FaGithub />
-              <ExternalLink
-                href="https://github.com/GShadowBroker/minhaloja"
-                target="_blank"
-                rel="noreferrer"
-              >
-                ver código
-              </ExternalLink>
-            </LinkContainer>
-          </ProjectLinks>
-          <ProjectDescription>
-            Esta é uma loja virtual fictícia totalmente customizada e construída
-            com NodeJS, Express e Pug (Jade). O app consome a API do{" "}
-            <ExternalLink
-              href="https://pagseguro.uol.com.br/"
-              target="_blank"
-              rel="noreferrer"
+      {projects.map(project => (
+        <ProjectsWrapper key={project.title}>
+          <Project>
+            <InfiniteCarousel
+              dots={true}
+              showSides={true}
+              sidesOpacity={0.5}
+              sideSize={0.1}
+              slidesToScroll={1}
+              slidesToShow={1}
+              scrollOnDevice={true}
             >
-              PagSeguro
-            </ExternalLink>
-            , que permite adicionar itens ao carrinho de compras, finalizar a
-            compra e redirecionar o usuário ao sandbox do PagSeguro, processando
-            a compra como se fosse uma operação real.
-          </ProjectDescription>
-          <ProjectDescription>
-            Quando trabalhei neste aplicativo, pude colocar em prática
-            conhecimentos sobre o Express, segurança de dados, PostgreSQL e
-            Sequelize ORM.
-          </ProjectDescription>
-          <Technologies>
-            <Icon>
-              <FaNodeJs title="NodeJS" />
-            </Icon>
-            <Icon
-              title="Express"
-              style={{
-                height: "100%",
-                display: "flex",
-                alignItems: "center",
-                paddingBottom: 10,
-                letterSpacing: -1,
-                marginRight: 10,
-              }}
-            >
-              <span style={{ fontSize: ".5em" }}>EXPRESS</span>
-            </Icon>
-            <Icon
-              title="Pug"
-              style={{
-                height: "100%",
-                display: "flex",
-                alignItems: "center",
-                paddingBottom: 15,
-                letterSpacing: -1,
-                marginRight: 10,
-                marginLeft: 10,
-              }}
-            >
-              <span style={{ fontSize: ".7em" }}>pug</span>
-            </Icon>
-            <Icon>
-              <SiPostgresql title="PostgreSQL" />
-            </Icon>
-            <Icon title="Bootstrap">
-              <FaBootstrap />
-            </Icon>
-            <Icon title="SASS">
-              <FaSass />
-            </Icon>
-          </Technologies>
-        </ProjectDetailsContainer>
-        <Project path={require(`../../assets/loja_${shop.value.index}.png`)}>
-          <Overlay>
-            <ChevronLeft onClick={shop.prevImage} light>
-              <FaChevronLeft />
-            </ChevronLeft>
-            <ChevronRight onClick={shop.nextImage} light>
-              <FaChevronRight />
-            </ChevronRight>
-            <Controls>
-              {Array.from(Array(shop.value.total).keys()).map((i, index) => (
-                <ImageCount
-                  key={index}
-                  onClick={() => shop.jumpToImage(index + 1)}
-                  filled={shop.value.index === index + 1}
-                />
+              {project.images.map((image, index) => (
+                <div key={index}>
+                  <img alt="" src={require(`../../assets/${image}`)} />
+                </div>
               ))}
-            </Controls>
-          </Overlay>
-        </Project>
-      </ProjectsWrapper>
-      <ProjectsWrapper left>
-        <Project path={require(`../../assets/chess_${chess.value.index}.png`)}>
-          <Overlay>
-            <ChevronLeft onClick={chess.prevImage}>
-              <FaChevronLeft />
-            </ChevronLeft>
-            <ChevronRight onClick={chess.nextImage}>
-              <FaChevronRight />
-            </ChevronRight>
-            <Controls>
-              {Array.from(Array(chess.value.total).keys()).map((i, index) => (
-                <ImageCount
-                  key={index}
-                  onClick={() => chess.jumpToImage(index + 1)}
-                  filled={chess.value.index === index + 1}
-                />
+            </InfiniteCarousel>
+            <Technologies>
+              {project.tags.map((tag, index) => (
+                <Icon key={index}>{icons[tag]}</Icon>
               ))}
-            </Controls>
-          </Overlay>
-        </Project>
-        <ProjectDetailsContainer left>
-          <ProjectTitle>Temporizador de xadrez</ProjectTitle>
-          <ProjectLinks>
-            <LinkContainer>
-              <FaLink />
-              <ExternalLink
-                href="https://onlinechessclock.netlify.app/"
-                target="_blank"
-              >
-                visitar
-              </ExternalLink>
-            </LinkContainer>
-            <LinkContainer>
-              <FaGithub />
-              <ExternalLink
-                href="https://github.com/GShadowBroker/Chess-Clock-React-App"
-                target="_blank"
-                rel="noreferrer"
-              >
-                ver código
-              </ExternalLink>
-            </LinkContainer>
-          </ProjectLinks>
-          <ProjectDescription>
-            Um temporizador de xadrez online que permite customizar o timer e o
-            incremento de cada jogada. Use-o no computador ou celular para
-            controlar o tempo das jogadas. Construído inteiramente no React e em
-            CSS vanilla.
-          </ProjectDescription>
-          <ProjectDescription>
-            Este foi um dos meus primeiros projetos em ReactJS. Nele, busquei
-            fazer uso dos componentes de classe e dos novos componentes
-            funcionais com hooks. Com isso, pude estudar as nuances de ambas as
-            abordagens referente à sintaxe e como elas lidam com estado da
-            aplicação.
-          </ProjectDescription>
-          <Technologies>
-            <Icon>
-              <FaReact title="ReactJS" />
-            </Icon>
-          </Technologies>
-        </ProjectDetailsContainer>
-      </ProjectsWrapper>
-      <ProjectsWrapper right>
-        <ProjectDetailsContainer right>
-          <ProjectTitle>Meu portfólio</ProjectTitle>
-          <ProjectLinks>
-            <LinkContainer>
-              <FaGithub />
-              <ExternalLink
-                href="https://github.com/GShadowBroker/Personal-Portfolio"
-                target="_blank"
-                rel="noreferrer"
-              >
-                ver código
-              </ExternalLink>
-            </LinkContainer>
-          </ProjectLinks>
+            </Technologies>
+          </Project>
+          <ProjectDetailsContainer>
+            <ProjectTitle>{project.title}</ProjectTitle>
 
-          <ProjectDescription>
-            Este é meu humilde portfólio feito com React, Styled Components,
-            Gatsby e Netlify CMS. Nele, busquei empregar um design ao mesmo
-            tempo minimalista quanto moderno. O meu objetivo foi construir um
-            site estático baseado em javascript que fosse rápido e que pudesse
-            contar com boa otimização de SEO, gerenciamento de tema (claro e
-            escuro), integração de formulário com a Netlify e habilidade de
-            facilmente editar o conteúdo do site com Netlify CMS.
-          </ProjectDescription>
+            <ProjectLinks>
+              <LinkContainer>
+                <FaLink />
+                <ExternalLink
+                  href={project.links.preview}
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  visitar
+                </ExternalLink>
+              </LinkContainer>
+              {project.links.backend_repo && (
+                <LinkContainer>
+                  <FaGithub />
+                  <ExternalLink
+                    href={project.links.backend_repo}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    backend
+                  </ExternalLink>
+                </LinkContainer>
+              )}
+              {project.links.frontend_repo && (
+                <LinkContainer>
+                  <FaGithub />
+                  <ExternalLink
+                    href={project.links.frontend_repo}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    front-end
+                  </ExternalLink>
+                </LinkContainer>
+              )}
+              {project.links.single_repo && (
+                <LinkContainer>
+                  <FaGithub />
+                  <ExternalLink
+                    href={project.links.single_repo}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
+                    ver código
+                  </ExternalLink>
+                </LinkContainer>
+              )}
+            </ProjectLinks>
 
-          <Technologies>
-            <Icon>
-              <FaReact title="ReactJS" />
-            </Icon>
-            <Icon>
-              <SiGatsby title="Gatsby" />
-            </Icon>
-            <Icon>
-              <SiStyledComponents title="Styled Components" />
-            </Icon>
-            <Icon>
-              <SiNetlify title="Netlify e Netlify CMS" />
-            </Icon>
-          </Technologies>
-        </ProjectDetailsContainer>
-        <Project
-          path={require(`../../assets/portfolio_${
-            theme === "dark" ? "light" : "dark"
-          }_1.png`)}
-        ></Project>
-      </ProjectsWrapper>
+            <ProjectDescription
+              dangerouslySetInnerHTML={{
+                __html: parseHtml(project.description),
+              }}
+            />
+          </ProjectDetailsContainer>
+        </ProjectsWrapper>
+      ))}
     </ProjectsContainer>
   )
 }

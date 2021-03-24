@@ -87,8 +87,11 @@ export const Headline = styled.div`
   animation-delay: 0.4s;
   animation-fill-mode: forwards;
 
-  @media only screen and (max-width: 380px) {
-    font-size: 3.5em;
+  @media only screen and (max-width: 410px) {
+    font-size: 3.2em;
+  }
+  @media only screen and (max-width: 320px) {
+    font-size: 3em;
   }
 `
 export const SubHeadline = styled.div`
@@ -114,6 +117,9 @@ export const SubHeadline = styled.div`
 
   @media only screen and (max-width: 380px) {
     font-size: 2em;
+  }
+  @media only screen and (max-width: 320px) {
+    font-size: 1.8em;
   }
 `
 

@@ -81,6 +81,10 @@ export const NavContainer = styled.div`
     display: inline;
     margin: 1rem;
   }
+
+  @media only screen and (min-width: 1400px) {
+    font-size: 1rem;
+  }
 `
 
 export const Menu = styled.ul`
@@ -129,6 +133,10 @@ export const ThemeSwitch = styled.button`
 
   min-height: 100%;
   width: 50px;
+
+  @media only screen and (min-width: 1400px) {
+    width: 60px;
+  }
 
   &:focus {
     outline: none;
