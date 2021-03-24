@@ -21,7 +21,7 @@ import {
   LogoImage,
   LogoText,
 } from "./styles"
-import isBrowser from "../utils/isBrowser"
+import isBrowser from "../../utils/isBrowser"
 
 const Nav = ({ toggleDrawer }) => {
   const themeButton = useRef(null)
