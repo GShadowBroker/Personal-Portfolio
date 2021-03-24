@@ -21,6 +21,7 @@ import {
   LogoImage,
   LogoText,
 } from "./styles"
+import isBrowser from "../utils/isBrowser"
 
 const Nav = ({ toggleDrawer }) => {
   const themeButton = useRef(null)
@@ -36,6 +37,7 @@ const Nav = ({ toggleDrawer }) => {
 
   useEffect(() => {
     const event = () => {
+      if (!isBrowser()) return
       if (window.pageYOffset === 0) {
         document.querySelector(".navbar").style.boxShadow = ``
         return
