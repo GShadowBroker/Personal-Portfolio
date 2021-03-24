@@ -13,24 +13,24 @@ const Drawer = ({ toggleDrawer, active }) => {
 
   return (
     <DrawerContainer active={active} theme={theme}>
-      <a
-        href="javascript:"
+      <button
         onClick={toggleDrawer}
-        role="button"
+        tabindex="0"
+        role="link"
         aria-label="close drawer menu"
         className="closebtn"
       >
         &times;
-      </a>
-      <a href="javascript:" onClick={() => handleClick("about")}>
+      </button>
+      <button tabindex="0" role="link" onClick={() => handleClick("about")}>
         Sobre Mim
-      </a>
-      <a href="javascript:" onClick={() => handleClick("projects")}>
+      </button>
+      <button tabindex="0" role="link" onClick={() => handleClick("projects")}>
         Projetos
-      </a>
-      <a href="javascript:" onClick={() => handleClick("contact")}>
+      </button>
+      <button tabindex="0" role="link" onClick={() => handleClick("contact")}>
         Contato
-      </a>
+      </button>
     </DrawerContainer>
   )
 }

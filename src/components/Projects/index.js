@@ -30,8 +30,12 @@ import {
   Technologies,
   Icon,
 } from "./styles"
-import InfiniteCarousel from "react-leaf-carousel"
 import parseHtml from "../utils/parseHtml"
+import isBrowser from "../../utils/isBrowser"
+let InfiniteCarousel
+if (isBrowser()) {
+  InfiniteCarousel = require("react-leaf-carousel").default
+}
 
 const Projects = () => {
   const { theme } = useContext(themeContext)
@@ -169,6 +173,7 @@ const Projects = () => {
     ),
   }
 
+  if (!InfiniteCarousel) return <div>Failed loading component</div>
   return (
     <ProjectsContainer id="projects">
       <Title theme={theme} className="section__title">

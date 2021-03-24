@@ -4,7 +4,7 @@ import dimensions from "../../constants/dimensions"
 
 export const DrawerContainer = styled.div`
   height: 100%;
-  width: ${props => (props.active ? 280 : 0)}px;
+  width: ${props => (props.active ? 290 : 0)}px;
   opacity: ${props => (props.active ? 1 : 0)};
   position: fixed;
   z-index: 3;
@@ -14,18 +14,21 @@ export const DrawerContainer = styled.div`
   box-shadow: 1px 1px 5px solid ${props => colors[props.theme].shadow};
   overflow-x: hidden;
   padding-top: 60px;
-  transition: 0.4s;
+  transition: all 0.2s ease;
 
-  a {
+  button {
+    background: none;
+    border: none;
+
     padding: 8px 8px 8px 32px;
     text-decoration: none;
     font-size: 25px;
     color: #818181;
     display: block;
-    transition: 0.3s;
+    transition: all 0.2s ease;
   }
 
-  a:hover {
+  button:hover {
     color: #f1f1f1;
   }
 
