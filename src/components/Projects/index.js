@@ -107,7 +107,7 @@ const Projects = () => {
         single_repo: "https://github.com/GShadowBroker/Chess-Clock-React-App",
       },
       images: ["chess_1.png", "chess_2.png"],
-      tags: ["NodeJS", "Express", "pug", "PostgreSQL", "Bootstrap", "Sass"],
+      tags: ["ReactJS"],
     },
 
     {
