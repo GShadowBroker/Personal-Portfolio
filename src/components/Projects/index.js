@@ -72,24 +72,20 @@ const Projects = () => {
     },
 
     {
-      title: "Lojinha fictícia de celulares",
+      title: "Jogo Brazilian Cat",
       description: `
-        <p>Loja virtual fictícia construída
-        com NodeJS, Express e Pug (Jade). O app consome a API do
-        <a href="https://pagseguro.uol.com.br/">PagSeguro</a>, que permite adicionar itens ao carrinho de compras, finalizar a
-        compra e redirecionar o usuário ao sandbox do PagSeguro, processando
-        a compra como se fosse uma operação real.</p>
-        <p>O app é renderizado no servidor (SSR) e utiliza Express, PostgreSQL, Sequelize ORM e Pug, entre outras tecnologias.
-        Foi um dos meus primeiros apps fullstack, mas não poderia deixar de expô-lo no meu portfólio.</p>
+        <p>Jogo de plataforma feito em Unity e C#. Controle um gato vagando pela noite
+        de uma vizinhança brasileira, evitando as corujas e coletandas bistecas pelo caminho.
+        Pixel-art feita por mim e recursos sonoros baixados de fontes livres de copyright na internet.</p>
       `,
       links: {
-        preview: "https://minhalojadecelulares.herokuapp.com/",
+        preview: "https://pokidrake.itch.io/brazilian-cat",
         frontend_repo: "",
         backend_repo: "",
-        single_repo: "https://github.com/GShadowBroker/minhaloja",
+        single_repo: "",
       },
-      images: ["loja_1.png", "loja_2.png", "loja_3.png", "loja_4.png"],
-      tags: ["NodeJS", "Express", "pug", "PostgreSQL", "Bootstrap", "Sass"],
+      images: ["cat_1.png", "cat_2.png", "cat_3.png", "cat_4.png"],
+      tags: [],
     },
 
     {
@@ -145,6 +141,27 @@ const Projects = () => {
       images: ["portfolio_light_1.png", "portfolio_dark_1.png"],
       tags: ["ReactJS", "Gatsby", "StyledComponents", "Netlify"],
     },
+
+    {
+      title: "Lojinha fictícia de celulares",
+      description: `
+        <p>Loja virtual fictícia construída
+        com NodeJS, Express e Pug (Jade). O app consome a API do
+        <a href="https://pagseguro.uol.com.br/">PagSeguro</a>, que permite adicionar itens ao carrinho de compras, finalizar a
+        compra e redirecionar o usuário ao sandbox do PagSeguro, processando
+        a compra como se fosse uma operação real.</p>
+        <p>O app é renderizado no servidor (SSR) e utiliza Express, PostgreSQL, Sequelize ORM e Pug, entre outras tecnologias.
+        Foi um dos meus primeiros apps fullstack, mas não poderia deixar de expô-lo no meu portfólio.</p>
+      `,
+      links: {
+        preview: "https://minhalojadecelulares.herokuapp.com/",
+        frontend_repo: "",
+        backend_repo: "",
+        single_repo: "https://github.com/GShadowBroker/minhaloja",
+      },
+      images: ["loja_1.png", "loja_2.png", "loja_3.png", "loja_4.png"],
+      tags: ["NodeJS", "Express", "pug", "PostgreSQL", "Bootstrap", "Sass"],
+    }
   ]
 
   const icons = {
