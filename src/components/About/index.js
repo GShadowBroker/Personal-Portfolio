@@ -8,12 +8,15 @@ import {
   FaGit,
   FaYarn,
   FaNodeJs,
+  FaDocker,
 } from "react-icons/fa"
 import {
   SiApollographql,
   SiGraphql,
   SiPostgresql,
   SiMongodb,
+  SiMysql,
+  SiTypescript,
 } from "react-icons/si"
 import { IoLogoJavascript } from "react-icons/io"
 import {
@@ -30,8 +33,8 @@ import {
   IconTitle,
 } from "./styles"
 
-const About = ({ aboutMe }) => {
-  const { theme } = useContext(themeContext)
+const About = ( { aboutMe } ) => {
+  const { theme } = useContext( themeContext )
   return (
     <AboutContainer id="about">
       <Title theme={theme} className="section__title">
@@ -74,6 +77,13 @@ const About = ({ aboutMe }) => {
               <IoLogoJavascript />
             </Icon>
             <IconTitle>JavaScript</IconTitle>
+          </IconContainer>
+
+          <IconContainer>
+            <Icon>
+              <SiTypescript />
+            </Icon>
+            <IconTitle>TypeScript</IconTitle>
           </IconContainer>
 
           <IconContainer>
@@ -127,9 +137,23 @@ const About = ({ aboutMe }) => {
 
           <IconContainer>
             <Icon>
+              <SiMysql />
+            </Icon>
+            <IconTitle>MySQL</IconTitle>
+          </IconContainer>
+
+          <IconContainer>
+            <Icon>
               <SiMongodb />
             </Icon>
             <IconTitle>MongoDB</IconTitle>
+          </IconContainer>
+
+          <IconContainer>
+            <Icon>
+              <FaDocker />
+            </Icon>
+            <IconTitle>Docker</IconTitle>
           </IconContainer>
         </StackIcons>
       </Stack>

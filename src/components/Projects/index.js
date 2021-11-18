@@ -33,12 +33,12 @@ import {
 import parseHtml from "../utils/parseHtml"
 import isBrowser from "../../utils/isBrowser"
 let InfiniteCarousel
-if (isBrowser()) {
-  InfiniteCarousel = require("react-leaf-carousel").default
+if ( isBrowser() ) {
+  InfiniteCarousel = require( "react-leaf-carousel" ).default
 }
 
 const Projects = () => {
-  const { theme } = useContext(themeContext)
+  const { theme } = useContext( themeContext )
 
   const projects = [
     {
@@ -60,7 +60,7 @@ const Projects = () => {
         backend_repo: "https://github.com/GShadowBroker/orkut-clone-server",
         single_repo: "",
       },
-      images: ["orkut_1.png", "orkut_2.png", "orkut_3.png", "orkut_4.png"],
+      images: [ "orkut_1.png", "orkut_2.png", "orkut_3.png", "orkut_4.png" ],
       tags: [
         "ReactJS",
         "StyledComponents",
@@ -84,7 +84,7 @@ const Projects = () => {
         backend_repo: "",
         single_repo: "",
       },
-      images: ["cat_1.png", "cat_2.png", "cat_3.png", "cat_4.png"],
+      images: [ "cat_1.png", "cat_2.png", "cat_3.png", "cat_4.png" ],
       tags: [],
     },
 
@@ -102,8 +102,8 @@ const Projects = () => {
         backend_repo: "",
         single_repo: "https://github.com/GShadowBroker/Chess-Clock-React-App",
       },
-      images: ["chess_1.png", "chess_2.png"],
-      tags: ["ReactJS"],
+      images: [ "chess_1.png", "chess_2.png" ],
+      tags: [ "ReactJS" ],
     },
 
     {
@@ -120,8 +120,8 @@ const Projects = () => {
         backend_repo: "",
         single_repo: "",
       },
-      images: ["office_1.png", "office_2.png", "office_3.png", "office_4.png"],
-      tags: ["ReactJS", "Gatsby", "StyledComponents", "Netlify"],
+      images: [ "office_1.png", "office_2.png", "office_3.png", "office_4.png" ],
+      tags: [ "ReactJS", "Gatsby", "StyledComponents", "Netlify" ],
     },
 
     {
@@ -138,8 +138,28 @@ const Projects = () => {
         backend_repo: "",
         single_repo: "https://github.com/GShadowBroker/Personal-Portfolio",
       },
-      images: ["portfolio_light_1.png", "portfolio_dark_1.png"],
-      tags: ["ReactJS", "Gatsby", "StyledComponents", "Netlify"],
+      images: [ "portfolio_light_1.png", "portfolio_dark_1.png" ],
+      tags: [ "ReactJS", "Gatsby", "StyledComponents", "Netlify" ],
+    },
+
+    {
+      title: "Plataforma para cadastro de mediadores",
+      description: `
+        <p>Protótipo de uma plataforma para cadastro de mediadores e câmaras de
+        mediação. O sistema permite cadastro de mediadores e câmaras, autorização e autenticação,
+        e visualização dos mediadores cadastrados, sendo possível filtrar a base de dados segundo
+        diversos critérios, como área de atuação, avaliação, patamar de preço, entre outros.</p>
+        <p>O frontend foi construído com ReactJS utilizando Redux e MaterialUI, e o backend foi feito em NodeJS. O banco de 
+        dados usado foi o PostgreSQL.</p>
+      `,
+      links: {
+        preview: "https://relaxed-ride-0c87c4.netlify.app/login",
+        frontend_repo: "https://github.com/GShadowBroker/cadastro-de-mediadores-cliente",
+        backend_repo: "https://github.com/GShadowBroker/cadastro-de-mediadores-servidor",
+        single_repo: "",
+      },
+      images: [ "cadastro_1.png", "cadastro_2.png", "cadastro_3.png", "cadastro_4.png", "cadastro_5.png" ],
+      tags: [ "NodeJS", "Express", "PostgreSQL", "StyledComponents", "ReactJS" ],
     },
 
     {
@@ -159,8 +179,8 @@ const Projects = () => {
         backend_repo: "",
         single_repo: "https://github.com/GShadowBroker/minhaloja",
       },
-      images: ["loja_1.png", "loja_2.png", "loja_3.png", "loja_4.png"],
-      tags: ["NodeJS", "Express", "pug", "PostgreSQL", "Bootstrap", "Sass"],
+      images: [ "loja_1.png", "loja_2.png", "loja_3.png", "loja_4.png" ],
+      tags: [ "NodeJS", "Express", "pug", "PostgreSQL", "Bootstrap", "Sass" ],
     }
   ]
 
@@ -190,13 +210,13 @@ const Projects = () => {
     ),
   }
 
-  if (!InfiniteCarousel) return <div>Failed loading component</div>
+  if ( !InfiniteCarousel ) return <div>Failed loading component</div>
   return (
     <ProjectsContainer id="projects">
       <Title theme={theme} className="section__title">
         PROJETOS
       </Title>
-      {projects.map(project => (
+      {projects.map( project => (
         <ProjectsWrapper key={project.title}>
           <Project>
             <InfiniteCarousel
@@ -208,16 +228,16 @@ const Projects = () => {
               slidesToShow={1}
               scrollOnDevice={true}
             >
-              {project.images.map((image, index) => (
+              {project.images.map( ( image, index ) => (
                 <div key={index}>
-                  <img alt="" src={require(`../../assets/${image}`)} />
+                  <img alt="" src={require( `../../assets/${image}` )} />
                 </div>
-              ))}
+              ) )}
             </InfiniteCarousel>
             <Technologies>
-              {project.tags.map((tag, index) => (
-                <Icon key={index}>{icons[tag]}</Icon>
-              ))}
+              {project.tags.map( ( tag, index ) => (
+                <Icon key={index}>{icons[ tag ]}</Icon>
+              ) )}
             </Technologies>
           </Project>
           <ProjectDetailsContainer>
@@ -274,12 +294,12 @@ const Projects = () => {
 
             <ProjectDescription
               dangerouslySetInnerHTML={{
-                __html: parseHtml(project.description),
+                __html: parseHtml( project.description ),
               }}
             />
           </ProjectDetailsContainer>
         </ProjectsWrapper>
-      ))}
+      ) )}
     </ProjectsContainer>
   )
 }

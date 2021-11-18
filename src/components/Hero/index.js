@@ -13,8 +13,8 @@ import {
 } from "./styles"
 import { trackCustomEvent } from "gatsby-plugin-google-analytics"
 
-const Hero = ({ heroDescription }) => {
-  const { theme } = useContext(themeContext)
+const Hero = ( { heroDescription } ) => {
+  const { theme } = useContext( themeContext )
 
   return (
     <HeroContainer>
@@ -25,18 +25,18 @@ const Hero = ({ heroDescription }) => {
             Sou <strong>Gledyson,</strong>
           </Headline>
           <SubHeadline style={{ marginBottom: "2rem" }}>
-            desenvolvedor web.
+            desenvolvedor javascript.
           </SubHeadline>
           <Text marginBottom={3}>{heroDescription}</Text>
           <Button
             text="CONTATO"
             handleClick={() => {
-              document.querySelector("#contact").scrollIntoView()
-              trackCustomEvent({
+              document.querySelector( "#contact" ).scrollIntoView()
+              trackCustomEvent( {
                 category: "Custom Button",
                 action: "Click",
                 label: "Botão contato",
-              })
+              } )
             }}
           />
         </Header>
