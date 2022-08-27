@@ -1,7 +1,7 @@
-import React, { useContext } from "react"
-import { themeContext } from "../../utils/ThemeContext"
-import Button from "../utils/Button"
-import Text from "../utils/Text"
+import React, {useContext} from "react";
+import {themeContext} from "../../utils/ThemeContext";
+import Button from "../utils/Button";
+import Text from "../utils/Text";
 import {
   HeroContainer,
   HeroLeftPane,
@@ -10,33 +10,33 @@ import {
   Headline,
   SubHeadline,
   Header,
-} from "./styles"
-import { trackCustomEvent } from "gatsby-plugin-google-analytics"
+} from "./styles";
+import {trackCustomEvent} from "gatsby-plugin-google-analytics";
 
-const Hero = ( { heroDescription } ) => {
-  const { theme } = useContext( themeContext )
+const Hero = ({heroDescription}) => {
+  const {theme} = useContext(themeContext);
 
   return (
     <HeroContainer>
       <HeroLeftPane>
         <Header>
           <Headline>Olá!</Headline>
-          <Headline style={{ marginBottom: "1rem" }}>
+          <Headline style={{marginBottom: "1rem"}}>
             Sou <strong>Gledyson,</strong>
           </Headline>
-          <SubHeadline style={{ marginBottom: "2rem" }}>
-            desenvolvedor javascript.
+          <SubHeadline style={{marginBottom: "2rem"}}>
+            desenvolvedor de software
           </SubHeadline>
           <Text marginBottom={3}>{heroDescription}</Text>
           <Button
             text="CONTATO"
             handleClick={() => {
-              document.querySelector( "#contact" ).scrollIntoView()
-              trackCustomEvent( {
+              document.querySelector("#contact").scrollIntoView();
+              trackCustomEvent({
                 category: "Custom Button",
                 action: "Click",
                 label: "Botão contato",
-              } )
+              });
             }}
           />
         </Header>
@@ -45,7 +45,7 @@ const Hero = ( { heroDescription } ) => {
         <Image />
       </HeroImageContainer>
     </HeroContainer>
-  )
-}
+  );
+};
 
-export default Hero
+export default Hero;

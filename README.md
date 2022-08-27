@@ -34,7 +34,7 @@ cd Personal-Portfolio
 2. Install dependencies:
 
 ```bash
-npm install
+yarn install
 ```
 
 3. Run it locally:
